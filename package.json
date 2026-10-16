@@ -1,0 +1,11 @@
+{
+  "name": "omnithynk-website",
+  "private": true,
+  "description": "OmniThynk website: static front end plus one AI function on Vercel.",
+  "dependencies": {
+    "@vercel/oidc": "3.8.9"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}
