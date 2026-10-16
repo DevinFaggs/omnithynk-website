@@ -1107,7 +1107,7 @@ const log=$('c-log'), cForm=$('c-form'), cIn=$('c-input'), cSend=$('c-send');
 function bubble(cls,txt){const d=document.createElement('div');d.className='msg '+cls;d.textContent=txt;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
 function errCopy(code){return ({rate_limited:'Too many questions at once. Try again in a minute.',session_expired:'Please sign in again to keep chatting.',refused:'I can\'t help with that one. Try asking about our services.',empty_completion:'I didn\'t get an answer. Try rephrasing.'})[code]||'Something went wrong on my end. Try again, or email omnithynk@gmail.com.';}
 function disableAI(msg){
-  $('c-state').textContent='Offline'; $('c-state').style.color='var(--dim)';
+  $('c-state').hidden=true;
   $('c-note').textContent=msg; cIn.disabled=true; cSend.disabled=true;
   document.querySelectorAll('#c-sugg .chip').forEach(c=>c.disabled=true);
   $('b-go').disabled=true; $('b-status').textContent='Live AI generation is coming soon. Here is an example concept.';
