@@ -13,6 +13,7 @@
 <meta property="og:title" content="OmniThynk | Built to Think. Trained to Evolve.">
 <meta property="og:description" content="OmniThynk builds intelligent, adaptive systems: custom AI, cloud infrastructure, cybersecurity and AI-enhanced business platforms. Built to think. Trained to evolve.">
 <meta property="og:url" content="https://omnithynk-website.vercel.app/">
+<meta property="og:url" content="https://omnithynk-website.vercel.app/">
 <meta property="og:image" content="https://omnithynk-website.vercel.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -29,9 +30,10 @@
 <style>
 /* Layout: an engineering lab console. Deep ink ground, instrument panels with mono readouts, one electric-blue action color, teal reserved for anything live or AI. */
 :root{
-  --ink:#060A12; --panel:#0B1120; --panel-2:#101A2E; --line:#1C2844; --line-2:#2A3A5E;
-  --text:#E8EDF7; --muted:#9AA7C0; --dim:#66738F;
-  --accent:#4F8BFF; --accent-ink:#04070E; --signal:#3CE6C4; --warn:#FFB45C;
+  --ink:#050816; --panel:rgba(18,24,54,.62); --panel-2:rgba(28,36,76,.78); --panel-solid:#0C1232; --line:rgba(150,165,255,.14); --line-2:rgba(150,165,255,.28);
+  --text:#EEF1FF; --muted:#AAB3D9; --dim:#7884B4;
+  --accent:#5B8CFF; --accent-ink:#FFFFFF; --signal:#34E5D8; --violet:#8B5CF6; --royal:#0727A0; --warn:#FFB45C;
+  --grad:linear-gradient(120deg,#3B6BFF 0%,#8B5CF6 55%,#22D3EE 100%);
   --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
   --f-body:"Geist", "Helvetica Neue", "Segoe UI", sans-serif;
   --f-mono:"Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -368,6 +370,54 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
   }
 }
 
+/* ===== FUTURISTIC + TRUST REFRESH ===== */
+body{background:radial-gradient(1100px 640px at 88% -4%,rgba(139,92,246,.24),transparent 60%),radial-gradient(1000px 680px at -12% 0%,rgba(7,39,160,.6),transparent 62%),var(--ink);background-repeat:no-repeat;background-color:var(--ink)}
+.grad,.hero h1 .think,.contact h2 em{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.panel{background:var(--panel);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 32px -12px rgba(91,140,255,.8)}
+.btn-primary:hover{background:var(--grad);filter:brightness(1.12);box-shadow:0 16px 44px -12px rgba(139,92,246,.85)}
+.btn-ghost{border-color:rgba(167,139,250,.35);background:rgba(255,255,255,.03)}
+.eyebrow{font-family:var(--f-body);font-weight:600;font-size:13px;letter-spacing:.14em;color:#B9C3FF}
+.msg.me{background:#3B5BDB;color:#fff}
+.aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;display:block;border-radius:50%;filter:blur(80px);opacity:.55;animation:drift 18s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:560px;height:560px;left:-140px;top:-180px;background:#1E3BFF}
+.aurora i:nth-child(2){width:480px;height:480px;right:-120px;top:20px;background:#7C3AED;animation-duration:23s}
+.aurora i:nth-child(3){width:400px;height:400px;left:38%;bottom:-220px;background:#06B6D4;opacity:.35;animation-duration:27s}
+@keyframes drift{to{transform:translate(70px,40px) scale(1.15)}}
+.assure{list-style:none;margin:34px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:12px 24px;color:#D3DAFF;font-size:15.5px}
+.assure li{display:flex;align-items:center;gap:10px}
+.assure li::before,.wins li::before{content:"✓";flex:none;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--grad);color:#fff;font-size:12px;font-weight:700}
+.concierge{background:linear-gradient(var(--panel-solid),var(--panel-solid)) padding-box,var(--grad) border-box;border:1px solid transparent;box-shadow:0 40px 110px -30px rgba(91,110,255,.6)}
+.c-head{border-bottom-color:var(--line)}
+.score{grid-template-columns:minmax(0,210px) minmax(0,1fr)}
+.score .t span{background:var(--grad)}
+.map-core{background:radial-gradient(circle,rgba(139,92,246,.5),rgba(7,39,160,.55) 55%,rgba(5,8,22,.95) 78%);border-color:rgba(167,139,250,.55);box-shadow:0 0 70px rgba(91,110,255,.5)}
+.map-lines line.on{stroke:#A78BFA}
+.map .svc-tab[aria-selected="true"]{border-color:#A78BFA;box-shadow:0 0 0 6px rgba(139,92,246,.18),0 18px 40px -16px rgba(139,92,246,.7)}
+.wins{border-radius:16px;padding:22px;background:linear-gradient(135deg,rgba(59,107,255,.16),rgba(139,92,246,.16));border:1px solid var(--line-2)}
+.wins ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+.wins li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px}
+.flow-stage.cur{border-color:#A78BFA;box-shadow:0 18px 40px -18px rgba(139,92,246,.7)}
+.flow-stage .bar2 span{background:var(--grad)}
+/* Ideas */
+.ideas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:44px}
+.idea{display:flex;flex-direction:column;gap:10px;text-align:left;padding:24px;border-radius:18px;border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--text);cursor:pointer;font:inherit;transition:transform .2s,border-color .2s,box-shadow .2s}
+.idea:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.55);box-shadow:0 24px 60px -24px rgba(139,92,246,.6)}
+.ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--grad);box-shadow:0 10px 24px -10px rgba(91,110,255,.8)}
+.idea b{font-family:var(--f-display);font-size:20px;line-height:1.2}
+.idea .d{color:var(--muted);font-size:15.5px}
+.idea .go{margin-top:auto;padding-top:6px;color:#C4CCFF;font-weight:600;font-size:14.5px}
+/* Trust band (light) */
+.trust{background:linear-gradient(180deg,#F5F7FF 0%,#E9EDFF 100%);color:#0B1030;border-top:0}
+.trust .eyebrow{color:#3A47D5}
+.trust .h2{color:#0B1030}
+.trust .lede{color:#3D466F}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:44px}
+.tcard{background:#fff;border-radius:18px;padding:26px;box-shadow:0 14px 34px -16px rgba(30,40,120,.25);border:1px solid #E0E5FF;display:flex;flex-direction:column;gap:10px}
+.tcard b{font-family:var(--f-display);font-size:20px;color:#0B1030}
+.tcard p{color:#465079;font-size:15.5px}
+
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -375,12 +425,12 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="OmniThynk home"><img src="/logo.png" alt="OmniThynk" width="165" height="40" style="height:40px;width:auto;display:block"></a>
     <nav class="navlinks" aria-label="Main">
-      <a href="#services" class="hide-sm">Products</a>
+      <a href="#services" class="hide-sm">What we build</a>
       <a href="#flow" class="hide-sm">See it work</a>
       <a href="#build" class="hide-sm">Live demo</a>
       <a href="#labs" class="hide-sm">Labs</a>
       <a href="#about" class="hide-sm">About</a>
-      <a href="#contact" class="btn btn-primary" style="min-height:42px;padding:0 18px;color:var(--accent-ink)">Book a strategy call</a>
+      <a href="#contact" class="btn btn-primary" style="min-height:42px;padding:0 18px;color:#fff">Tell us your idea</a>
     </nav>
   </div>
 </header>
@@ -388,30 +438,26 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
 <main id="top">
 <!-- HERO -->
 <section class="hero" aria-label="Introduction">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
   <canvas id="net" aria-hidden="true"></canvas>
   <div class="wrap hero-inner">
     <div>
-      <div class="eyebrow"><span class="dot"></span>AI systems · Infrastructure · Security · Platforms</div>
-      <h1>Built to <span class="think">think.</span><br>Trained to evolve.</h1>
-      <p class="lede">We embed intelligence into every layer of a business, from backend infrastructure to the moment a customer clicks. Custom AI, cloud, security and platforms that scale with you from v1 to v100. Everything on this page is live. Try it.</p>
+      <div class="eyebrow"><span class="dot"></span>Built to think. Trained to evolve.</div>
+      <h1>Got an idea?<br><span class="think">We'll build it.</span></h1>
+      <p class="lede">Apps, websites and smart AI helpers for everyday businesses and people with big ideas. Tell us what you're picturing. We'll design it, build it and keep it running. No tech experience needed.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#flow">Watch AI work a case →</a>
-        <a class="btn btn-ghost" href="#build">Generate a website concept</a>
+        <a class="btn btn-primary" href="#contact">Tell us your idea →</a>
+        <a class="btn btn-ghost" href="#ideas">See what we can build</a>
       </div>
-      <div class="readout" aria-label="Network status">
-        <div><div class="k">Nodes</div><div class="v" id="r-nodes">0</div></div>
-        <div><div class="k">Links</div><div class="v" id="r-links">0</div></div>
-        <div><div class="k">Signals</div><div class="v" id="r-sig">0</div></div>
-      </div>
-      <p class="hint">Move your cursor over the network. It reorganizes around you.</p>
+      <ul class="assure"><li>No tech knowledge needed</li><li>See it before it's built</li><li>Security built in</li></ul>
     </div>
 
     <!-- Live AI concierge -->
     <div class="panel concierge" id="concierge" aria-label="Ask OmniThynk">
       <div class="c-head">
         <div class="c-tabs" role="tablist" aria-label="Hero tools">
-          <button class="c-tab" role="tab" id="tab-stack" aria-selected="true" aria-controls="pane-stack">Build my AI stack</button>
-          <button class="c-tab" role="tab" id="tab-ask" aria-selected="false" aria-controls="pane-ask" tabindex="-1">Ask AI</button>
+          <button class="c-tab" role="tab" id="tab-stack" aria-selected="true" aria-controls="pane-stack">Start with my idea</button>
+          <button class="c-tab" role="tab" id="tab-ask" aria-selected="false" aria-controls="pane-ask" tabindex="-1">Ask a question</button>
         </div>
         <span class="live" id="c-state">Live</span>
       </div>
@@ -420,16 +466,16 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
       </div>
       <div class="pane" id="pane-ask" role="tabpanel" aria-labelledby="tab-ask" hidden>
       <div class="c-log" id="c-log" aria-live="polite">
-        <div class="msg bot">Hi, I'm OmniThynk's AI concierge. Ask me what we build, how an AI agent could help your business, or what a project with us looks like.</div>
+        <div class="msg bot">Hi! Ask me anything in plain words. For example, what it takes to turn your idea into an app, or how AI could save you time.</div>
       </div>
       <div class="c-sugg" id="c-sugg">
-        <button class="chip" type="button">What could an AI agent do for a 20-person company?</button>
-        <button class="chip" type="button">What does OmniSec cover?</button>
-        <button class="chip" type="button">I'm a solo creator. Where should I start?</button>
+        <button class="chip" type="button">I have an idea for an app. Where do I start?</button>
+        <button class="chip" type="button">How much does a website cost?</button>
+        <button class="chip" type="button">What can an AI helper do for my business?</button>
       </div>
       <form class="c-form" id="c-form">
         <label for="c-input" class="sr" style="position:absolute;left:-9999px">Your question</label>
-        <input id="c-input" type="text" placeholder="Ask about OmniAI, OmniSec, launching an MVP…" autocomplete="off">
+        <input id="c-input" type="text" placeholder="Ask anything, in your own words…" autocomplete="off">
         <button class="btn btn-primary" type="submit" id="c-send" style="min-height:46px;padding:0 18px">Ask</button>
       </form>
       <p class="c-note" id="c-note">Answers are generated live by AI and may be imperfect.</p>
@@ -440,21 +486,38 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
 
 <div style="border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap strip">
-    <span class="k">We build with</span>
+    <span class="k">Built with trusted tools</span>
     <span>Large language models</span><span>AWS</span><span>Microsoft Azure</span><span>Google Cloud</span><span>Kubernetes</span><span>React &amp; Next.js</span><span>Python</span><span>Salesforce</span>
   </div>
 </div>
 
+<!-- IDEAS -->
+<section class="band" id="ideas" style="border-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Not sure what's possible?</div>
+    <h2 class="h2" style="margin-top:16px;max-width:22ch">Here's what people bring us. <span class="grad">Yours could be next.</span></h2>
+    <p class="lede" style="margin-top:18px">You don't need a plan, a budget sheet or tech words. If you can describe it, we can build it. Tap one that sounds close to yours.</p>
+    <div class="ideas" id="idea-cards">
+      <button type="button" class="idea" data-idea="A booking app for my salon or studio"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><b>A booking app for my salon or studio</b><span class="d">Clients book and pay online, and reminders go out on their own.</span><span class="go">Start with this idea →</span></button>
+      <button type="button" class="idea" data-idea="An online store for my products"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 13H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></span><b>An online store for my products</b><span class="d">Sell anywhere, take payments and keep track of orders.</span><span class="go">Start with this idea →</span></button>
+      <button type="button" class="idea" data-idea="An AI helper for my customers"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><b>An AI helper for my customers</b><span class="d">It answers common questions any time and passes tricky ones to you.</span><span class="go">Start with this idea →</span></button>
+      <button type="button" class="idea" data-idea="A course or membership site"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M10 8l5 3-5 3z"/><path d="M8 21h8"/></svg></span><b>A course or membership site</b><span class="d">Sign-ups, payments and your content, all in one place you own.</span><span class="go">Start with this idea →</span></button>
+      <button type="button" class="idea" data-idea="An app for my church or community group"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4a3 3 0 0 1 0 6M21 20c0-2.6-1.6-4.8-4-5.6"/></svg></span><b>An app for my church or community group</b><span class="d">Events, giving and updates right on your members' phones.</span><span class="go">Start with this idea →</span></button>
+      <button type="button" class="idea" data-idea="A tool to end the spreadsheet chaos"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg></span><b>A tool to end the spreadsheet chaos</b><span class="d">Turn messy spreadsheets and paperwork into one simple system.</span><span class="go">Start with this idea →</span></button>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="band" id="services" style="border-top:0">
   <div class="wrap">
-    <div class="eyebrow">Products &amp; services</div>
-    <h2 class="h2" style="margin-top:16px;max-width:18ch">Five products. One intelligence layer.</h2>
-    <p class="lede" style="margin-top:18px">Every product plugs into the same core. Select one to see what we build, where it is used and what it runs on.</p>
+    <div class="eyebrow">What we build</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">Five ways we bring <span class="grad">your idea</span> to life.</h2>
+    <p class="lede" style="margin-top:18px">Everything connects back to your idea. Tap any circle to see what it does for you, in plain English.</p>
     <div class="svc">
       <div class="map" id="svc-map">
         <svg class="map-lines" id="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
-        <div class="map-core" aria-hidden="true"><span class="k">Core</span><b>Your<br>business</b></div>
+        <div class="map-core" aria-hidden="true"><span class="k">Start with</span><b>Your<br>idea</b></div>
         <div class="svc-list" role="tablist" aria-label="Products" id="svc-tabs"></div>
       </div>
       <div class="panel svc-panel" role="tabpanel" id="svc-panel" aria-live="polite"></div>
@@ -465,9 +528,9 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
 <!-- FLOW -->
 <section class="band" id="flow">
   <div class="wrap">
-    <div class="eyebrow"><span class="dot"></span>Intelligence in motion</div>
-    <h2 class="h2" style="margin-top:16px;max-width:20ch">Watch an AI workflow handle a real case.</h2>
-    <p class="lede" style="margin-top:18px">Pick a scenario. Each stage shows what the system sees and what it decides. Click any stage to stop and inspect it.</p>
+    <div class="eyebrow"><span class="dot"></span>See it in action</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">Watch an AI helper take care of a real task.</h2>
+    <p class="lede" style="margin-top:18px">Pick an example and watch it work, step by step. Tap any step to pause and see what is happening.</p>
     <div class="flow-top">
       <div class="chips" id="flow-sc" role="group" aria-label="Scenario"></div>
       <button type="button" class="btn btn-ghost" id="flow-play" style="min-height:42px;padding:0 18px">Pause</button>
@@ -533,14 +596,14 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
 <!-- ROI -->
 <section class="band" id="roi">
   <div class="wrap">
-    <div class="eyebrow">AI automation estimator</div>
+    <div class="eyebrow">Time-savings calculator</div>
     <h2 class="h2" style="margin-top:16px;max-width:20ch">How much time is repetitive work costing you?</h2>
     <div class="roi">
       <div class="panel sliders">
         <div><div class="sl-top"><label for="s-team">People doing repetitive work</label><output id="o-team" for="s-team">8</output></div><input id="s-team" type="range" min="1" max="200" value="8"></div>
         <div><div class="sl-top"><label for="s-hrs">Hours per person, per week</label><output id="o-hrs" for="s-hrs">10</output></div><input id="s-hrs" type="range" min="1" max="30" value="10"></div>
-        <div><div class="sl-top"><label for="s-rate">Loaded hourly cost</label><output id="o-rate" for="s-rate">$45</output></div><input id="s-rate" type="range" min="15" max="200" step="5" value="45"></div>
-        <div><div class="sl-top"><label for="s-pct">Share an AI agent can take on</label><output id="o-pct" for="s-pct">40%</output></div><input id="s-pct" type="range" min="10" max="80" step="5" value="40"></div>
+        <div><div class="sl-top"><label for="s-rate">What an hour of their time costs you</label><output id="o-rate" for="s-rate">$45</output></div><input id="s-rate" type="range" min="15" max="200" step="5" value="45"></div>
+        <div><div class="sl-top"><label for="s-pct">How much an AI helper could handle</label><output id="o-pct" for="s-pct">40%</output></div><input id="s-pct" type="range" min="10" max="80" step="5" value="40"></div>
       </div>
       <div class="panel result" aria-live="polite">
         <div class="eyebrow">Estimated annual value</div>
@@ -548,7 +611,7 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
         <div class="bar" aria-hidden="true"><span id="r-bar" style="width:0%"></span></div>
         <div class="kv">
           <div><div class="k">Hours returned / yr</div><div class="v" id="r-hours">0</div></div>
-          <div><div class="k">Full-time equivalents</div><div class="v" id="r-fte">0</div></div>
+          <div><div class="k">Full-time people's worth</div><div class="v" id="r-fte">0</div></div>
         </div>
         <p class="fine">A rough estimate based on 48 working weeks. Real results depend on your workflows, which is what our discovery session measures.</p>
         <a class="btn btn-ghost" href="#contact" style="align-self:flex-start">Get a real assessment</a>
@@ -560,14 +623,31 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
 <!-- PROCESS -->
 <section class="band" id="process">
   <div class="wrap">
-    <div class="eyebrow">How a project runs</div>
-    <h2 class="h2" style="margin-top:16px;max-width:20ch">From first call to a system that keeps improving.</h2>
+    <div class="eyebrow">How it works</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">Four simple steps from <span class="grad">idea to launch.</span></h2>
     <ol class="steps">
-      <li><h3>Discover</h3><p>We map your goals and workflows and find where time and revenue leak.</p></li>
-      <li><h3>Design</h3><p>A clickable prototype and plan you approve before production code starts.</p></li>
-      <li><h3>Deploy</h3><p>We build, integrate with your systems and launch without disrupting operations.</p></li>
-      <li><h3>Evolve</h3><p>We measure, retrain and improve every month the system runs.</p></li>
+      <li><h3>Talk</h3><p>Tell us your idea in your own words. We ask questions and listen.</p></li>
+      <li><h3>See it</h3><p>We show you a clickable preview, so you know exactly what you're getting.</p></li>
+      <li><h3>Build</h3><p>We build it, test it and launch it, with updates in plain English along the way.</p></li>
+      <li><h3>Grow</h3><p>We keep it running, fix issues and improve it as your business grows.</p></li>
     </ol>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="band trust" id="trust">
+  <div class="wrap">
+    <div class="eyebrow">Never built anything before?</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">That's exactly who we're for.</h2>
+    <p class="lede" style="margin-top:18px">Most people who come to us have an idea and no clue where to start. That's normal. We handle the technical side and explain every step in plain English.</p>
+    <div class="trust-grid">
+      <div class="tcard"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg></span><b>No tech skills needed</b><p>If you can describe it, we can build it. We ask the right questions for you.</p></div>
+      <div class="tcard"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><b>See it before it's built</b><p>You get a clickable preview first, so there are no surprises.</p></div>
+      <div class="tcard"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><b>Clear quotes up front</b><p>You'll know what it costs before any work starts.</p></div>
+      <div class="tcard"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg></span><b>You own what we build</b><p>Your website, your app and your data belong to you.</p></div>
+      <div class="tcard"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><b>Safe and secure</b><p>Security is built in from day one, not added later.</p></div>
+      <div class="tcard"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span><b>Experienced leadership</b><p>Led by a U.S. Air Force veteran with two decades managing major technology programs.</p></div>
+    </div>
   </div>
 </section>
 
@@ -626,10 +706,10 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
   <div class="wrap">
     <div class="eyebrow"><span class="dot"></span>OmniThynk Labs · Opening soon</div>
     <h2 class="h2" style="margin-top:16px;max-width:20ch">A place to experiment with AI before you bet on it.</h2>
-    <p class="lede" style="margin-top:18px">Labs is opening for small businesses and creators who want hands-on time with AI. Try agents on your own material, learn what works, and keep what pays off.</p>
+    <p class="lede" style="margin-top:18px">Labs is opening for small businesses and creators who want hands-on time with AI. Try AI helpers on your own work, learn what helps, and keep what pays off.</p>
     <div class="labs">
-      <article class="panel lab"><span class="tag">Sandbox</span><h3>Try AI on your own work</h3><p>Private environments to test agents on your documents, inbox or catalog before you commit.</p><span class="stage">Planned</span></article>
-      <article class="panel lab"><span class="tag">Starter kits</span><h3>Ready-made agents</h3><p>Templates for support, content, scheduling and lead follow-up that you can adapt in an afternoon.</p><span class="stage">Planned</span></article>
+      <article class="panel lab"><span class="tag">Sandbox</span><h3>Try AI on your own work</h3><p>A safe space to test AI helpers on your documents, inbox or products before you commit.</p><span class="stage">Planned</span></article>
+      <article class="panel lab"><span class="tag">Starter kits</span><h3>Ready-made AI helpers</h3><p>Templates for support, content, scheduling and lead follow-up that you can adapt in an afternoon.</p><span class="stage">Planned</span></article>
       <article class="panel lab"><span class="tag">Learning</span><h3>Workshops &amp; office hours</h3><p>Live sessions with our engineers to get unstuck and learn what AI can and can't do for you.</p><span class="stage">Planned</span></article>
       <article class="panel lab"><span class="tag">Platforms</span><h3>Early access</h3><p>Labs members get first access to the AI-native platforms OmniThynk is building.</p><span class="stage">On the roadmap</span></article>
     </div>
@@ -654,11 +734,11 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
 <section class="band" id="engage">
   <div class="wrap">
     <div class="eyebrow">Ways to work with us</div>
-    <h2 class="h2" style="margin-top:16px;max-width:20ch">Start small. Scale what works.</h2>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">Start small. <span class="grad">Grow from there.</span></h2>
     <div class="labs">
-      <article class="panel lab"><span class="tag">2 weeks</span><h3>AI Opportunity Sprint</h3><p>We review your workflows and hand you a prioritized, costed AI roadmap you can act on with or without us.</p><span class="stage" style="color:var(--text)">From [$PRICE]</span></article>
-      <article class="panel lab" style="border-color:var(--accent)"><span class="tag" style="color:var(--accent)">Most requested</span><h3>OmniLaunch Build</h3><p>An MVP or conversion-focused website with AI built in, designed and shipped with lean methodology.</p><span class="stage" style="color:var(--text)">From [$PRICE]</span></article>
-      <article class="panel lab"><span class="tag">Monthly subscription</span><h3>Infrastructure Support</h3><p>Ongoing cloud, DevOps and security support that scales with your business, from v1 to v100.</p><span class="stage" style="color:var(--text)">From [$PRICE]/mo</span></article>
+      <article class="panel lab"><span class="tag">About 2 weeks</span><h3>AI Opportunity Check</h3><p>We look at how you work and show you exactly where AI can save you time and money.</p><span class="stage" style="color:var(--text)">From [$PRICE]</span></article>
+      <article class="panel lab" style="border-color:#A78BFA"><span class="tag" style="color:#C4B5FD">Most popular</span><h3>OmniLaunch Build</h3><p>Your website or app, designed, built and launched, with AI built in.</p><span class="stage" style="color:var(--text)">From [$PRICE]</span></article>
+      <article class="panel lab"><span class="tag">Monthly plan</span><h3>Care &amp; Hosting</h3><p>We host it, protect it, update it and fix issues, month after month.</p><span class="stage" style="color:var(--text)">From [$PRICE]/mo</span></article>
     </div>
   </div>
 </section>
@@ -669,6 +749,8 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
     <div class="eyebrow">Questions</div>
     <h2 class="h2" style="margin-top:16px">Before you reach out.</h2>
     <div style="margin-top:36px;display:flex;flex-direction:column;gap:10px">
+      <details class="panel" style="padding:18px 22px" open><summary style="cursor:pointer;font-family:var(--f-display);font-size:19px;font-weight:700">I only have an idea. Is that enough?</summary><p style="color:var(--muted);margin-top:12px">Yes. Most of our clients start exactly there. We help you shape the idea, show you a preview, and then build it.</p></details>
+      <details class="panel" style="padding:18px 22px"><summary style="cursor:pointer;font-family:var(--f-display);font-size:19px;font-weight:700">How much does it cost?</summary><p style="color:var(--muted);margin-top:12px">It depends on what you want to build. We talk through your idea first and give you a clear quote before any work starts.</p></details>
       <details class="panel" style="padding:18px 22px"><summary style="cursor:pointer;font-family:var(--f-display);font-size:19px;font-weight:700">How long does a new website take?</summary><p style="color:var(--muted);margin-top:12px">[Typical timeline range]. A clickable prototype comes first, so you see the site before we build it.</p></details>
       <details class="panel" style="padding:18px 22px"><summary style="cursor:pointer;font-family:var(--f-display);font-size:19px;font-weight:700">Is our data safe with your AI systems?</summary><p style="color:var(--muted);margin-top:12px">We design for security by default: your data stays in your accounts, access is logged, and nothing is used to train public models. [Add your specific policy.]</p></details>
       <details class="panel" style="padding:18px 22px"><summary style="cursor:pointer;font-family:var(--f-display);font-size:19px;font-weight:700">Do we need technical staff to work with you?</summary><p style="color:var(--muted);margin-top:12px">No. We handle the engineering and train your team to run what we deliver.</p></details>
@@ -682,15 +764,15 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
   <div class="wrap contact">
     <div>
       <div class="eyebrow">Start a project</div>
-      <h2 style="margin-top:16px">Let's build something that <em>thinks.</em></h2>
-      <p class="lede" style="margin-top:24px">Answer three quick questions and we'll turn them into a project brief. You'll hear back within one business day.</p>
+      <h2 style="margin-top:16px">Let's build <em>your idea.</em></h2>
+      <p class="lede" style="margin-top:24px">Answer three quick questions and we'll turn them into a simple plan. You'll hear back within one business day.</p>
       <div class="lines">
         <div class="line"><div><div class="k">Phone</div><div class="v">+1 (513) 497-0420</div></div><button class="copy" type="button" data-copy="+1 (513) 497-0420">Copy</button></div>
         <div class="line"><div><div class="k">Email</div><div class="v">omnithynk@gmail.com</div></div><button class="copy" type="button" data-copy="omnithynk@gmail.com">Copy</button></div>
       </div>
     </div>
     <div class="panel intake" id="intake" aria-label="Project intake">
-      <div class="in-head"><span class="mono" style="font-size:12px;color:var(--muted)">omnithynk://intake</span><span class="mono" id="in-step" style="font-size:12px;color:var(--dim)">1 / 4</span></div>
+      <div class="in-head"><span style="font-size:13.5px;font-weight:600;color:var(--muted)">Your idea, step by step</span><span class="mono" id="in-step" style="font-size:12px;color:var(--dim)">1 / 4</span></div>
       <div class="in-log" id="in-log" aria-live="polite"></div>
       <div class="in-ctl" id="in-ctl"></div>
     </div>
@@ -719,7 +801,6 @@ function resize(){
   W=r.width; H=r.height; cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
   const n = Math.round(Math.min(110, Math.max(40, W*H/14000)));
   nodes = Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:1.2+Math.random()*1.8}));
-  document.getElementById('r-nodes').textContent = n;
   if(reduce) draw();
 }
 const LINK=130;
@@ -740,7 +821,7 @@ function draw(){
       if(d<LINK*LINK){
         links++;
         const dd=Math.sqrt(d),near=mouse.on&&Math.hypot(mouse.x-(a.x+b.x)/2,mouse.y-(a.y+b.y)/2)<170;
-        ctx.strokeStyle = near?`rgba(79,139,255,${.65*(1-dd/LINK)})`:`rgba(120,150,210,${.16*(1-dd/LINK)})`;
+        ctx.strokeStyle = near?`rgba(79,139,255,${.65*(1-dd/LINK)})`:`rgba(150,140,255,${.2*(1-dd/LINK)})`;
         ctx.lineWidth = near?1.2:.8;
         ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
         if(!reduce && Math.random()<(near?.004:.0006) && pulses.length<40){pulses.push({a,b,t:0}); sigCount++;}
@@ -749,18 +830,16 @@ function draw(){
   }
   for(const p of nodes){
     const near = mouse.on && Math.hypot(mouse.x-p.x,mouse.y-p.y)<170;
-    ctx.fillStyle = near?'#9FC0FF':'rgba(160,185,235,.55)';
+    ctx.fillStyle = near?'#9FC0FF':'rgba(195,185,255,.6)';
     ctx.beginPath(); ctx.arc(p.x,p.y,near?p.r+1:p.r,0,Math.PI*2); ctx.fill();
   }
   for(let k=pulses.length-1;k>=0;k--){
     const s=pulses[k]; s.t+=.025;
     if(s.t>=1){pulses.splice(k,1);continue;}
     const x=s.a.x+(s.b.x-s.a.x)*s.t,y=s.a.y+(s.b.y-s.a.y)*s.t;
-    ctx.fillStyle='#3CE6C4'; ctx.shadowColor='#3CE6C4'; ctx.shadowBlur=10;
+    const pc=(k%2)?'#A78BFA':'#22D3EE'; ctx.fillStyle=pc; ctx.shadowColor=pc; ctx.shadowBlur=10;
     ctx.beginPath(); ctx.arc(x,y,2.4,0,Math.PI*2); ctx.fill(); ctx.shadowBlur=0;
   }
-  document.getElementById('r-links').textContent = links;
-  document.getElementById('r-sig').textContent = sigCount.toLocaleString();
 }
 function loop(){ if(running) draw(); requestAnimationFrame(loop); }
 const hero = document.querySelector('.hero');
@@ -775,15 +854,15 @@ if(!reduce){
 
 /* ---------- Services tabs ---------- */
 const SERVICES=[
- {k:'OmniAI',u:['Support agent that resolves routine tickets and hands off the rest','Sales assistant that qualifies leads and books calls','Knowledge assistant over your documents and policies'],tools:['Claude','GPT','Llama','LangChain','Vector search','Python'],sub:'Custom AI systems',d:'Artificial intelligence built around your business: models tuned on your data and agents that handle real work in support, sales and operations.',l:['LLM tuning and training on your own data','Automated customer support, sales and operations','AI embedded in your apps, platforms and products','Human review wherever it matters'],t:[['p','$ omni ai deploy support-agent'],['','  knowledge base ....... '],['ok','indexed'],['','  tone + policy tuning . '],['ok','passed review'],['','  channels ............. '],['w','chat, email, sms'],['','  status ............... '],['ok','live']]},
- {k:'Smart Infrastructure',u:['Move a monolith to containers without downtime','Cut cloud spend with right-sizing and autoscaling','Ship daily with automated tests and deploys'],tools:['AWS','Azure','Google Cloud','Kubernetes','Terraform','GitHub Actions'],sub:'Cloud & DevOps',d:'Scalable backend architecture and cloud-native deployments that keep up when growth arrives, with automation that lets your team ship fast.',l:['Scalable backend architecture','Cloud-native deployments on AWS, Azure and GCP','CI/CD automation for fast-moving teams','Monitoring and cost control'],t:[['p','$ omni infra up --env prod'],['','  clusters ............. '],['ok','healthy'],['','  ci/cd pipeline ....... '],['ok','green'],['','  autoscaling .......... '],['ok','on'],['','  rollback plan ........ '],['w','ready']]},
- {k:'OmniLaunch',u:['Investor-ready MVP for a new product','Membership or course platform for a creator','Customer portal connected to your existing systems'],tools:['Next.js','React','React Native','Supabase','Stripe','Low-code tools'],sub:'Startup acceleration',d:'A full product team for founders: web and app development, lean MVPs, and the right mix of code and no-code to get to market fast.',l:['Full-stack web and app development','MVP design and build with lean methodology','No-code and low-code integration strategy','Conversion-focused websites with AI built in'],t:[['p','$ omni launch mvp'],['','  user stories ......... '],['w','scoped'],['','  clickable prototype .. '],['ok','approved'],['','  web + app ............ '],['ok','shipped'],['','  analytics ............ '],['ok','tracking']]},
- {k:'OmniSec',u:['Security baseline before a funding round or enterprise deal','Payment and privacy readiness for an online store','Continuous monitoring with alerts your team can act on'],tools:['SOC 2 readiness','OWASP','Cloud security posture','SIEM','SSO / MFA','Encryption'],sub:'Business-grade cybersecurity',d:'Security designed in from day one, so customers can trust you with their data and their payments.',l:['Digital trust frameworks for eCommerce, fintech and SaaS','Real-time threat detection','Data privacy compliance','Security-by-design reviews on every build'],t:[['p','$ omni sec scan --continuous'],['','  threat detection ..... '],['ok','active'],['','  privacy controls ..... '],['ok','mapped'],['','  open critical issues . '],['w','0'],['','  trust report ......... '],['ok','ready']]},
- {k:'ThinkLayer',u:['Executive KPI dashboard that updates itself','Churn-risk alerts that trigger a retention workflow','Sales forecast that explains its own drivers'],tools:['Power BI','Looker','dbt','Snowflake / BigQuery','Python ML','HubSpot / Salesforce'],sub:'AI-enhanced business platforms',d:'Dashboards, forecasts and smart workflows that show what is working and act on it before the quarter ends.',l:['Custom KPI dashboards and forecasting','Predictive analytics for decision-making','Smart workflows for lead nurturing, retention and conversion','Reports your team will actually read'],t:[['p','$ omni think forecast --next-quarter'],['','  sources connected .... '],['ok','synced'],['','  churn-risk model ..... '],['ok','updated'],['','  at-risk accounts ..... '],['w','flagged'],['','  nurture workflow ..... '],['ok','triggered']]}
+ {k:"OmniAI",sub:"AI helpers that work for you",d:"Smart assistants that answer your customers, follow up on leads and handle the busywork, day and night.",l:["An AI helper trained on your business","Answers customer questions 24/7","Follows up with leads and books appointments","Hands tricky questions to a real person"],u:["A chat helper on your website that knows your services","Automatic replies to common emails","A helper that sorts and summarizes paperwork"],tools:["Claude","GPT","Llama","LangChain","Vector search","Python"],wins:["Customers get answers in seconds, any time of day","Fewer missed leads and phone calls","Hours of repetitive work off your plate"]},
+ {k:"Smart Infrastructure",sub:"Fast, reliable hosting",d:"The behind-the-scenes engine that keeps your website and app fast, online and ready to grow.",l:["Hosting set up and managed for you","Automatic backups","Fast loading on every device","Room to grow when you get busy"],u:["Moving an old website to modern hosting","Handling a big launch or busy season","Keeping an app online around the clock"],tools:["AWS","Azure","Google Cloud","Kubernetes","Terraform","GitHub Actions"],wins:["Your site stays up when it matters most","Pages load fast on any phone","No surprises when lots of people show up"]},
+ {k:"OmniLaunch",sub:"Websites and apps from your idea",d:"Bring us your idea and we turn it into a real website or app: designed, built and launched.",l:["Website and mobile app design","A clickable preview before we build","Online stores, bookings and payments","Launch help and simple training"],u:["A website that brings in customers","A booking or ordering app","A members, course or community platform"],tools:["Next.js","React","React Native","Supabase","Stripe","Low-code tools"],wins:["See your idea come to life before it's built","A professional look that builds trust","Something you own and can grow"]},
+ {k:"OmniSec",sub:"Keeping you safe online",d:"Protection for your business and your customers, built in from the very start.",l:["Security checkups","Safe payments and logins","Protection for customer information","Alerts if something looks wrong"],u:["Getting ready to take payments online","Protecting customer information","Checking an existing site for weak spots"],tools:["SOC 2 readiness","OWASP","Cloud security","Threat monitoring","SSO / MFA","Encryption"],wins:["Customers trust you with their information","Less risk of hacks and scams","Peace of mind that someone is watching"]},
+ {k:"ThinkLayer",sub:"See how your business is doing",d:"Simple dashboards and smart reports that show what is working, so you can make better decisions.",l:["One dashboard with your key numbers","Forecasts for sales and busy times","Automatic follow-ups that keep customers coming back","Reports in plain English"],u:["Seeing sales, leads and costs in one place","Knowing which customers might leave","Spotting your best sellers"],tools:["Power BI","Looker","dbt","Snowflake / BigQuery","Python ML","HubSpot / Salesforce"],wins:["Know your numbers at a glance","Make decisions with facts, not guesses","Stop digging through spreadsheets"]}
 ];
 const tabs=document.getElementById('svc-tabs'), panel=document.getElementById('svc-panel'), mapLines=document.getElementById('map-lines');
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
-let typeTimer, svcCur=0;
+let svcCur=0;
 const NS='http://www.w3.org/2000/svg';
 const POS=SERVICES.map((_,i)=>{const a=(-90+i*72)*Math.PI/180;return [50+34*Math.cos(a),50+34*Math.sin(a)];});
 POS.forEach((p,i)=>{const n=POS[(i+1)%POS.length],l=document.createElementNS(NS,'line');l.setAttribute('x1',p[0]);l.setAttribute('y1',p[1]);l.setAttribute('x2',n[0]);l.setAttribute('y2',n[1]);l.setAttribute('class','ring');mapLines.appendChild(l);});
@@ -798,15 +877,9 @@ function showSvc(i){
   [...tabs.children].forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1;});
   mapLines.querySelectorAll('line[data-i]').forEach(l=>l.classList.toggle('on',+l.getAttribute('data-i')===i));
   const s=SERVICES[i];
-  panel.innerHTML=`<div><div class="eyebrow">${esc(s.sub)}</div><h3 style="margin-top:10px">${esc(s.k)}</h3><p class="lede">${esc(s.d)}</p><div class="seg" role="group" aria-label="Details">${['What we build','Use cases','Tools'].map((n,j)=>`<button type="button" class="seg-b" data-j="${j}">${n}</button>`).join('')}</div><div id="svc-detail"></div></div><div class="term" id="term" aria-hidden="true"></div>`;
+  panel.innerHTML=`<div><div class="eyebrow">${esc(s.sub)}</div><h3 style="margin-top:10px">${esc(s.k)}</h3><p class="lede">${esc(s.d)}</p><div class="seg" role="group" aria-label="Details">${['What you get','Ideas it fits','Tech we use'].map((n,j)=>`<button type="button" class="seg-b" data-j="${j}">${n}</button>`).join('')}</div><div id="svc-detail"></div></div><div class="wins"><div class="eyebrow">What you'll notice</div><ul>${s.wins.map(w=>`<li>${esc(w)}</li>`).join('')}</ul></div>`;
   panel.querySelectorAll('.seg-b').forEach(b=>b.onclick=()=>svcDetail(+b.dataset.j));
   svcDetail(0);
-  const term=document.getElementById('term'); clearTimeout(typeTimer);
-  const lines=[]; let cur='';
-  s.t.forEach(([c,txt])=>{const span=`<span class="${c}">${esc(txt)}</span>`; if(c==='p'){lines.push(span);} else if(c===''){cur=span;} else {lines.push(cur+span);cur='';}});
-  if(cur) lines.push(cur);
-  if(reduce){term.innerHTML=lines.join('<br>');return;}
-  let n=0; (function step(){term.innerHTML=lines.slice(0,++n).join('<br>')+(n<lines.length?'<br><span class="p">▍</span>':''); if(n<lines.length) typeTimer=setTimeout(step,260);})();
 }
 SERVICES.forEach((s,i)=>{const b=document.createElement('button');b.className='svc-tab';b.type='button';b.setAttribute('role','tab');b.style.left=POS[i][0]+'%';b.style.top=POS[i][1]+'%';b.innerHTML=`<span>${esc(s.k)}</span><span class="sub">${esc(s.sub)}</span>`;b.onclick=()=>showSvc(i);tabs.appendChild(b);});
 tabs.addEventListener('keydown',e=>{const cur=[...tabs.children].findIndex(b=>b.getAttribute('aria-selected')==='true');let n=null;if(e.key==='ArrowDown'||e.key==='ArrowRight')n=(cur+1)%SERVICES.length;if(e.key==='ArrowUp'||e.key==='ArrowLeft')n=(cur-1+SERVICES.length)%SERVICES.length;if(n!==null){e.preventDefault();showSvc(n);tabs.children[n].focus();}});
@@ -833,20 +906,21 @@ tAsk.onclick=()=>heroTab('ask'); tStack.onclick=()=>heroTab('stack');
 
 /* ---------- AI stack builder ---------- */
 const PRODS=['OmniAI','Smart Infrastructure','OmniLaunch','OmniSec','ThinkLayer'];
-const FIRST={'OmniAI':'Deploy one AI agent on your highest-volume workflow.','Smart Infrastructure':'Stabilize architecture, CI/CD and autoscaling.','OmniLaunch':'Prototype and ship your MVP or platform.','OmniSec':'Run a security baseline and close the critical gaps.','ThinkLayer':'Connect your data into one live KPI dashboard.'};
+const PLAIN={"OmniAI":"AI helpers that work for you","Smart Infrastructure":"Fast, reliable hosting","OmniLaunch":"Builds your website or app","OmniSec":"Keeps you safe online","ThinkLayer":"Shows how you're doing"};
+const FIRST={"OmniAI":"Set up an AI helper for your most common questions and tasks.","Smart Infrastructure":"Put it on fast, reliable hosting that grows with you.","OmniLaunch":"Design a clickable preview of your idea, then build and launch it.","OmniSec":"Lock it down so you and your customers stay safe.","ThinkLayer":"Give you a simple dashboard that shows how it's doing."};
 const SQ=[
- {q:'What best describes you?',o:[['Startup scaling fast',{1:2,2:2,3:1}],['Established business',{0:2,4:2,1:1}],['Founder-led company',{0:2,4:1,2:1}],['Creator or solopreneur',{2:3,0:1}],['Tech-first product company',{0:3,3:1,1:1}]]},
- {q:'What hurts most right now?',o:[['Too much manual work',{0:3,4:1}],['Customers wait too long',{0:3}],["Can't see what's working",{4:3,0:1}],["Systems won't scale",{1:3,3:1}],['Security and compliance worries',{3:3,1:1}],['We need to launch a product',{2:3}]]},
- {q:'Where does your data live today?',o:[['Scattered in spreadsheets and inboxes',{4:2,1:1}],['In a CRM or database',{0:2,4:1}],['Centralized in a warehouse or dashboards',{0:2,4:1}]]}
+ {q:"What would you like to make?",o:[["A website for my business",{2:3,3:1}],["A mobile app",{2:3,1:1}],["An online store",{2:3,3:2}],["An AI helper that answers customers",{0:3}],["A tool that saves my team time",{0:2,4:2}],["I'm not sure yet",{2:1,0:1,4:1}]]},
+ {q:"Who will use it?",o:[["My customers",{2:1,3:1}],["My team or staff",{0:1,4:1}],["Just me",{0:1}],["The public or a community",{2:1,1:1}]]},
+ {q:"Where are you today?",o:[["It's just an idea",{2:1}],["I have notes or sketches",{2:1}],["I have something that needs fixing",{1:1,3:1}]]}
 ];
-const DATA_NOTE=['First step: get your data into one place so the AI has something reliable to learn from.','Your data is ready to connect an AI agent directly.','You are ready for predictive models and deeper automation.'];
+const DATA_NOTE=["Perfect place to start. Most of our clients begin with just an idea and a conversation.","Great. Bring them to our first chat and we'll turn them into a clickable preview.","We'll start by looking at what you have and fixing what's holding you back."];
 let sw={step:0,a:[]}, lastStack=null;
 function renderSW(){
   const el=$('sw');
   const prog=`<div class="sw-prog" aria-hidden="true">${[0,1,2,3].map(i=>`<i class="${i<=sw.step?'on':''}"></i>`).join('')}</div>`;
   if(sw.step<SQ.length){
     const q=SQ[sw.step];
-    el.innerHTML=`${prog}<div class="mono" style="font-size:12px;color:var(--dim)">STEP ${sw.step+1} OF 3</div><div class="sw-q">${esc(q.q)}</div><div class="sw-opts">${q.o.map((o,i)=>`<button type="button" class="chip" data-i="${i}">${esc(o[0])}</button>`).join('')}</div>${sw.step?'<button type="button" class="copy" id="sw-back" style="align-self:flex-start">← Back</button>':''}`;
+    el.innerHTML=`${prog}<div class="eyebrow" style="font-size:12px">Step ${sw.step+1} of 3</div><div class="sw-q">${esc(q.q)}</div><div class="sw-opts">${q.o.map((o,i)=>`<button type="button" class="chip" data-i="${i}">${esc(o[0])}</button>`).join('')}</div>${sw.step?'<button type="button" class="copy" id="sw-back" style="align-self:flex-start">← Back</button>':''}`;
     el.querySelectorAll('.sw-opts .chip').forEach(b=>b.onclick=()=>{sw.a[sw.step]=+b.dataset.i;sw.step++;renderSW();});
     const bk=$('sw-back'); if(bk) bk.onclick=()=>{sw.step--;renderSW();};
     return;
@@ -856,12 +930,12 @@ function renderSW(){
   const ranked=sc.map((v,i)=>({p:PRODS[i],v})).filter(x=>x.v>0).sort((a,b)=>b.v-a.v).slice(0,3);
   const max=ranked[0].v;
   lastStack={profile:SQ[0].o[sw.a[0]][0],pain:SQ[1].o[sw.a[1]][0],data:SQ[2].o[sw.a[2]][0],stack:ranked.map(r=>r.p)};
-  el.innerHTML=`${prog}<div class="mono" style="font-size:12px;color:var(--signal)">YOUR RECOMMENDED STACK</div>
-  <div style="display:flex;flex-direction:column;gap:10px">${ranked.map(r=>`<div class="score"><span>${esc(r.p)}</span><div class="t"><span style="width:0%" data-w="${Math.round(r.v/max*100)}"></span></div></div>`).join('')}</div>
-  <div class="phase"><span class="n">01</span><span>${esc(FIRST[ranked[0].p])}</span>${ranked[1]?`<span class="n">02</span><span>${esc(FIRST[ranked[1].p])}</span>`:''}<span class="n">0${ranked[1]?3:2}</span><span>Measure, retrain and improve every month.</span></div>
+  el.innerHTML=`${prog}<div class="eyebrow">Here's how we'd build it</div>
+  <div style="display:flex;flex-direction:column;gap:10px">${ranked.map(r=>`<div class="score"><span><b>${esc(r.p)}</b><br><small style="color:var(--muted)">${esc(PLAIN[r.p])}</small></span><div class="t"><span style="width:0%" data-w="${Math.round(r.v/max*100)}"></span></div></div>`).join('')}</div>
+  <div class="phase"><span class="n">01</span><span>${esc(FIRST[ranked[0].p])}</span>${ranked[1]?`<span class="n">02</span><span>${esc(FIRST[ranked[1].p])}</span>`:''}<span class="n">0${ranked[1]?3:2}</span><span>We keep improving it as you grow.</span></div>
   <p style="font-size:14px;color:var(--muted)">${esc(DATA_NOTE[sw.a[2]])}</p>
   <p id="sw-ai" style="font-size:14.5px;color:#C5CEDF" hidden></p>
-  <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><a class="btn btn-primary" href="#contact" style="min-height:42px;padding:0 18px">Turn this into a brief</a>${sample?'<button type="button" class="btn btn-ghost" id="sw-explain" style="min-height:42px;padding:0 18px">Explain it with AI</button>':''}<button type="button" class="copy" id="sw-reset">Start over</button></div>`;
+  <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><a class="btn btn-primary" href="#contact" style="min-height:42px;padding:0 18px">Send us this plan</a>${sample?'<button type="button" class="btn btn-ghost" id="sw-explain" style="min-height:42px;padding:0 18px">Explain it simply</button>':''}<button type="button" class="copy" id="sw-reset">Start over</button></div>`;
   requestAnimationFrame(()=>requestAnimationFrame(()=>el.querySelectorAll('.score .t span').forEach(x=>x.style.width=x.dataset.w+'%')));
   $('sw-reset').onclick=()=>{sw={step:0,a:[]};renderSW();};
   const ex=$('sw-explain'); if(ex) ex.onclick=explainStack;
@@ -870,29 +944,29 @@ async function explainStack(){
   const out=$('sw-ai'), b=$('sw-explain'); if(!sample||!lastStack) return;
   b.disabled=true; out.hidden=false; out.textContent='Thinking…';
   try{
-    await sample(`${RULES}\n\nA visitor used the AI stack builder. Profile: ${lastStack.profile}. Biggest pain: ${lastStack.pain}. Data: ${lastStack.data}. Recommended stack, in order: ${lastStack.stack.join(', ')}. In 3 short sentences, explain why this stack fits them and what we would tackle first. Plain text.`,{modelTier:'quick',onText:({text})=>{out.textContent=text;}});
+    await sample(`${RULES}\n\nA visitor used the idea planner. They want: ${lastStack.profile}. It is for: ${lastStack.pain}. Where they are: ${lastStack.data}. Our suggested products, in order: ${lastStack.stack.join(', ')}. In 3 short, friendly sentences for someone with no technical background, explain what we would build for them and what happens first. No jargon. Plain text.`,{modelTier:'quick',onText:({text})=>{out.textContent=text;}});
   }catch(e){ out.textContent=(e&&e.text)||errCopy(e&&e.code); }
   finally{ b.disabled=false; }
 }
 renderSW();
 
 /* ---------- Workflow demo ---------- */
-const STAGES=['Ingest','Understand','Decide','Act','Learn'];
+const STAGES=['Comes in','Understands','Decides','Takes care of it','Gets smarter'];
 const POWER=['Smart Infrastructure','OmniAI','OmniAI','ThinkLayer','ThinkLayer'];
 const SCEN={
- 'Support ticket':[
+ 'Customer complaint':[
   ['A customer email arrives in the support inbox.','from: maria@example.com\nsubject: "Charged twice for order #4471"\nchannel: email'],
   ['AI reads the message, classifies intent and urgency, and pulls the order history.','intent: billing_dispute\nurgency: high\nsentiment: frustrated\norder #4471: 2 charges found'],
   ['A policy check confirms duplicate charges under $500 can be refunded without a manager.','rule: auto_refund if amount <= $500\nresult: approved'],
   ['Refund issued, apology sent, ticket closed and CRM updated.','refund: issued\nreply: sent\nticket: resolved\ncrm: updated'],
   ['The outcome is logged. A repeat pattern alerts engineering to a payment bug.','pattern: 3rd duplicate charge this week\naction: engineering alert opened']],
- 'Sales lead':[
+ 'New customer inquiry':[
   ['A visitor submits the website form.','name: J. Patel\ncompany: 40-person logistics firm\nnote: "drowning in manual dispatch"'],
   ['AI enriches the lead and maps the need to a product.','industry: logistics\nsize: 40\nneed: workflow automation\nmatch: OmniAI'],
   ['It scores fit and picks the next best action.','fit: strong\nnext action: book discovery call'],
   ['A personalized reply goes out, the call is booked and the CRM record is created.','email: sent\ncall: booked\ncrm: opportunity created'],
   ['Win and loss results feed back into scoring, so the next lead is ranked better.','scoring model: weights updated']],
- 'Vendor invoice':[
+ 'Supplier bill':[
   ['A vendor invoice PDF lands in the accounts payable inbox.','file: invoice_8812.pdf\nvendor: Midwest Supply'],
   ['AI extracts every line item and matches it to the purchase order.','PO: 3390\nlines: 14\nmatched: 13\nmismatch: 1 (quantity)'],
   ['The mismatch is over tolerance, so it routes to a person instead of paying.','variance: qty 40 billed vs 36 received\nroute: human review'],
@@ -900,13 +974,13 @@ const SCEN={
   ['Vendor accuracy is tracked. Repeat issues trigger a supplier conversation.','vendor score: updated']]
 };
 const fs=$('flow-stages'), fd=$('flow-detail'), fp=$('flow-play'), fsc=$('flow-sc');
-let fl={sc:'Support ticket',i:0,play:!reduce,timer:null,visible:false};
+let fl={sc:'Customer complaint',i:0,play:!reduce,timer:null,visible:false};
 STAGES.forEach((n,i)=>{const li=document.createElement('li');li.innerHTML=`<button type="button" class="flow-stage"><span class="n">0${i+1}</span><b>${n}</b><span class="pw">${esc(POWER[i])}</span><span class="bar2"><span></span></span></button>`;li.firstElementChild.onclick=()=>{fl.i=i;setPlay(false);flowUpdate();};fs.appendChild(li);});
 Object.keys(SCEN).forEach(k=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=k;b.setAttribute('aria-pressed',k===fl.sc);b.onclick=()=>{fl.sc=k;fl.i=0;[...fsc.children].forEach(c=>c.setAttribute('aria-pressed',c.textContent===k));flowUpdate();tick();};fsc.appendChild(b);});
 function flowUpdate(){
   [...fs.children].forEach((li,j)=>{const b=li.firstElementChild;b.classList.toggle('done',j<fl.i);b.classList.toggle('cur',j===fl.i);if(j===fl.i)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');const sp=b.querySelector('.bar2 span');sp.style.animation='none';void sp.offsetWidth;sp.style.animation='';});
   const st=SCEN[fl.sc][fl.i];
-  fd.innerHTML=`<div><div class="eyebrow">Stage 0${fl.i+1} · ${STAGES[fl.i]} · ${esc(POWER[fl.i])}</div><p style="font-size:20px;line-height:1.45;margin-top:12px">${esc(st[0])}</p></div><div class="payload">${esc(st[1])}</div>`;
+  fd.innerHTML=`<div><div class="eyebrow">Stage 0${fl.i+1} · ${STAGES[fl.i]} · ${esc(POWER[fl.i])}</div><p style="font-size:20px;line-height:1.45;margin-top:12px">${esc(st[0])}</p></div><div><div class="eyebrow" style="margin-bottom:8px">What the AI sees</div><div class="payload">${esc(st[1])}</div></div>`;
   fs.classList.toggle('paused',!fl.play);
 }
 function tick(){clearTimeout(fl.timer); if(!fl.play||!fl.visible) return; fl.timer=setTimeout(()=>{fl.i=(fl.i+1)%STAGES.length;flowUpdate();tick();},2800);}
@@ -917,12 +991,12 @@ flowUpdate(); if(reduce) setPlay(false);
 
 /* ---------- Guided intake ---------- */
 const IQ=[
- {id:'goal',q:'What are you trying to automate or build?',o:['Customer support','Sales and lead follow-up','Operations and back office','A new product or MVP','Reporting and forecasting','Security and compliance'],other:true},
- {id:'sys',q:'What systems do you use now? Pick all that apply.',o:['Google Workspace','Microsoft 365','Salesforce','HubSpot','QuickBooks','Shopify','Custom software','Mostly spreadsheets'],multi:true},
- {id:'out',q:'What outcome matters most?',o:['Save time','Grow revenue','Better customer experience','See the numbers clearly','Reduce risk']},
- {id:'who',q:'Where should we send your project brief?',form:true}
+ {id:'goal',q:"What's your idea? Pick one or type your own.",o:["A website for my business","A mobile app","An online store","An AI helper for customers","A tool to save my team time","Something else"],other:true},
+ {id:'sys',q:"What do you use today? Pick any that apply.",o:["Email and spreadsheets","A website I already have","Social media pages","Square, Stripe or PayPal","QuickBooks","Salesforce or HubSpot","Nothing yet"],multi:true},
+ {id:'out',q:"What matters most to you?",o:["Getting more customers","Saving time","Looking professional","Making money online","Not sure yet"]},
+ {id:'who',q:"Great. Where should we send your plan?",form:true}
 ];
-const GOAL2P={'Customer support':'OmniAI','Sales and lead follow-up':'OmniAI','Operations and back office':'OmniAI','A new product or MVP':'OmniLaunch','Reporting and forecasting':'ThinkLayer','Security and compliance':'OmniSec'};
+const GOAL2P={"A website for my business":"OmniLaunch","A mobile app":"OmniLaunch","An online store":"OmniLaunch","An AI helper for customers":"OmniAI","A tool to save my team time":"ThinkLayer"};
 let ins={step:0,ans:{}};
 const ilog=$('in-log'), ictl=$('in-ctl');
 function iBubble(cls,t){const d=document.createElement('div');d.className='msg '+cls;d.textContent=t;ilog.appendChild(d);return d;}
@@ -930,7 +1004,7 @@ function iAsk(){
   const q=IQ[ins.step]; $('in-step').textContent=`${ins.step+1} / ${IQ.length}`;
   iBubble('bot',q.q);
   if(q.form){
-    ictl.innerHTML=`<form id="in-form" style="display:flex;flex-direction:column;gap:12px"><div class="row2"><div class="field"><label for="in-name">Name</label><input id="in-name" type="text" required placeholder="Jane Smith"></div><div class="field"><label for="in-email">Email</label><input id="in-email" type="email" required placeholder="jane@company.com"></div></div><div class="field"><label for="in-co">Company</label><input id="in-co" type="text" placeholder="Company name"></div><button class="btn btn-primary" type="submit">Create my project brief →</button></form>`;
+    ictl.innerHTML=`<form id="in-form" style="display:flex;flex-direction:column;gap:12px"><div class="row2"><div class="field"><label for="in-name">Name</label><input id="in-name" type="text" required placeholder="Jane Smith"></div><div class="field"><label for="in-email">Email</label><input id="in-email" type="email" required placeholder="jane@company.com"></div></div><div class="field"><label for="in-co">Company</label><input id="in-co" type="text" placeholder="Company name"></div><button class="btn btn-primary" type="submit">Create my plan →</button></form>`;
     $('in-form').onsubmit=e=>{e.preventDefault();const a=ins.ans;a.name=$('in-name').value.trim();a.email=$('in-email').value.trim();a.co=$('in-co').value.trim();iBubble('me',`${a.name}${a.co?' · '+a.co:''}\n${a.email}`);iFinish();};
     return;
   }
@@ -946,8 +1020,8 @@ function iAsk(){
 function iAnswer(v){ins.ans[IQ[ins.step].id]=v;iBubble('me',v);ins.step++;iAsk();}
 async function iFinish(){
   $('in-step').textContent='Brief ready';
-  const a=ins.ans, prod=GOAL2P[a.goal]||(lastStack?lastStack.stack[0]:'OmniAI');
-  const brief=`Project brief: ${a.name}${a.co?', '+a.co:''}\nGoal: ${a.goal}\nCurrent systems: ${a.sys}\nTop outcome: ${a.out}\nSuggested starting point: ${prod}${lastStack?'\nStack builder result: '+lastStack.stack.join(' → '):''}\nContact: ${a.email}`;
+  const a=ins.ans, prod=GOAL2P[a.goal]||(lastStack?lastStack.stack[0]:'OmniLaunch');
+  const brief=`Project brief: ${a.name}${a.co?', '+a.co:''}\nGoal: ${a.goal}\nCurrent systems: ${a.sys}\nTop outcome: ${a.out}\nSuggested starting point: ${prod}${lastStack?'\nIdea planner result: '+lastStack.stack.join(' → '):''}\nContact: ${a.email}`;
   const card=document.createElement('div'); card.className='brief';
   card.innerHTML=`<span class="k">Your project brief</span><div style="white-space:pre-wrap">${esc(brief)}</div><div id="in-ai" style="color:#C5CEDF" hidden></div>`;
   ilog.appendChild(card);
@@ -956,22 +1030,27 @@ async function iFinish(){
   $('in-reset').onclick=()=>{ins={step:0,ans:{}};ilog.innerHTML='';iAsk();};
   if(sample){
     const ai=$('in-ai'); ai.hidden=false; ai.textContent='Drafting a summary…';
-    try{ await sample(`${RULES}\n\nWrite a 3-sentence project summary an OmniThynk engineer could act on, based on this intake. Plain text, no greeting.\n\n${brief}`,{modelTier:'quick',onText:({text})=>{ai.textContent=text;}}); }
+    try{ await sample(`${RULES}\n\nWrite a 3-sentence, friendly summary of this person's idea and what OmniThynk would build first, in plain language with no jargon. Plain text, no greeting.\n\n${brief}`,{modelTier:'quick',onText:({text})=>{ai.textContent=text;}}); }
     catch(e){ if(e&&e.text) ai.textContent=e.text; else ai.hidden=true; }
   }
 }
 iAsk();
+document.querySelectorAll('#idea-cards .idea').forEach(c=>c.addEventListener('click',()=>{
+  if(ins.step!==0){ins={step:0,ans:{}};ilog.innerHTML='';iAsk();}
+  iAnswer(c.dataset.idea);
+  document.getElementById('contact').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+}));
 
 /* ---------- Card spotlight ---------- */
 document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.lab');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');},{passive:true});
 
 /* ---------- Who it's for ---------- */
 const WHO=[
- {k:'Startups scaling fast',s:'Product-market fit, now growth',pitch:'You have traction. Now the stack has to hold up while you grow.',stack:['OmniLaunch','Smart Infrastructure','OmniSec'],first:'An architecture review and scaling roadmap, then CI/CD and security baselines so your team can ship daily with confidence.'},
- {k:'Established businesses',s:'Ready for digital transformation',pitch:'Your systems work, but they were not built for an AI-driven market.',stack:['OmniAI','ThinkLayer','Smart Infrastructure'],first:'Map the workflows that cost the most time, automate one of them end to end, and measure the result before expanding.'},
- {k:'Founders',s:'Automate the business, focus on vision',pitch:'You want the business running itself so you can spend time on what only you can do.',stack:['OmniAI','ThinkLayer'],first:'An AI agent on your busiest inbox or pipeline, plus one dashboard with the numbers you actually check.'},
- {k:'Creators, educators & solopreneurs',s:'Done with low-grade tech',pitch:'You have outgrown patched-together plugins and platforms you do not own.',stack:['OmniLaunch','OmniAI'],first:'A fast platform you own, with AI that answers your audience and handles sign-ups and payments.'},
- {k:'Tech-first companies',s:'Real intelligence, not flashy features',pitch:'You want AI inside your product, not a chatbot bolted onto the side.',stack:['OmniAI','OmniSec','ThinkLayer'],first:'Tuned models embedded in your product with evaluation, security review and monitoring from day one.'}
+ {k:"Small business owners",s:"You run the business, not the tech",pitch:"You want a website or app that brings in customers without becoming a second job.",stack:["OmniLaunch","OmniAI"],first:"A modern website with an AI helper that answers questions and books customers for you."},
+ {k:"People with an idea",s:"You have a vision, not a tech team",pitch:"You know what you want to make. You just don't know how to build it.",stack:["OmniLaunch","Smart Infrastructure"],first:"A conversation about your idea, then a clickable preview you can show people before we build it."},
+ {k:"Creators, coaches & educators",s:"Done with clunky tools",pitch:"You want one place you own for your content, courses or community.",stack:["OmniLaunch","OmniAI"],first:"A platform you own, with sign-ups, payments and an AI helper for your audience."},
+ {k:"Growing companies",s:"Buried in busywork",pitch:"Your team spends too much time on repetitive work and scattered spreadsheets.",stack:["OmniAI","ThinkLayer","Smart Infrastructure"],first:"Pick the task that eats the most time, automate it, and show you the hours saved."},
+ {k:"Startups",s:"Ready to grow fast",pitch:"You have early success and need technology that keeps up.",stack:["OmniLaunch","Smart Infrastructure","OmniSec"],first:"Make your product fast, stable and secure so it holds up as you grow."}
 ];
 const wl=$('who-list'), wo=$('who-out');
 function showWho(i){
@@ -1023,7 +1102,7 @@ Values: Mastery, Clarity, Agility, Empowerment, Truth (no hype, no buzzwords, re
 Process: Discover, Design (clickable prototype), Deploy, Evolve.
 Founder and CEO: Dr. Devin Faggs, DBA in Strategy and Innovation, two decades leading technology and R&D programs (National Science Foundation, DOE/NNSA, Battelle/PNNL), U.S. Air Force veteran. CTO: Tim Jones.
 Contact: omnithynk@gmail.com, +1 (513) 497-0420.
-Rules: Answer in 2 to 5 short sentences, plain text, no markdown. Match the brand voice: clear, confident, no hype or buzzwords. Name the specific product that fits the question. Never invent prices, guaranteed timelines, client names or statistics; for cost or timeline say it depends on scope and suggest a discovery call. If asked something unrelated, answer briefly and steer back. End with a next step when natural.`;
+Rules: Answer in 2 to 5 short sentences, plain text, no markdown. Speak in plain, friendly language for people with no technical background; avoid jargon and explain any technical word you must use. Many visitors only have an idea; reassure them that is enough to start. Match the brand voice: clear, confident, no hype or buzzwords. Name the specific product that fits the question. Never invent prices, guaranteed timelines, client names or statistics; for cost or timeline say it depends on scope and suggest a discovery call. If asked something unrelated, answer briefly and steer back. End with a next step when natural.`;
 let turns=[], busy=false, ctl=null;
 const log=$('c-log'), cForm=$('c-form'), cIn=$('c-input'), cSend=$('c-send');
 function bubble(cls,txt){const d=document.createElement('div');d.className='msg '+cls;d.textContent=txt;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
