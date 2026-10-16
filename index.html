@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OmniThynk | Built to Think. Trained to Evolve.</title>
+<meta name="description" content="OmniThynk builds intelligent, adaptive systems: custom AI, cloud infrastructure, cybersecurity and AI-enhanced business platforms. Built to think. Trained to evolve.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OmniThynk">
+<meta property="og:title" content="OmniThynk | Built to Think. Trained to Evolve.">
+<meta property="og:description" content="OmniThynk builds intelligent, adaptive systems: custom AI, cloud infrastructure, cybersecurity and AI-enhanced business platforms. Built to think. Trained to evolve.">
+<meta property="og:image" content="/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OmniThynk | Built to Think. Trained to Evolve.">
+<meta name="twitter:description" content="OmniThynk builds intelligent, adaptive systems: custom AI, cloud infrastructure, cybersecurity and AI-enhanced business platforms. Built to think. Trained to evolve.">
+<meta name="twitter:image" content="/og.png">
+<meta name="theme-color" content="#060A12">
+<style>:root{color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an engineering lab console. Deep ink ground, instrument panels with mono readouts, one electric-blue action color, teal reserved for anything live or AI. */
+:root{
+  --ink:#060A12; --panel:#0B1120; --panel-2:#101A2E; --line:#1C2844; --line-2:#2A3A5E;
+  --text:#E8EDF7; --muted:#9AA7C0; --dim:#66738F;
+  --accent:#4F8BFF; --accent-ink:#04070E; --signal:#3CE6C4; --warn:#FFB45C;
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --f-body:"Geist", "Helvetica Neue", "Segoe UI", sans-serif;
+  --f-mono:"Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:14px; --max:1240px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--ink);color:var(--text);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-0.025em}
+p{margin:0}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.band{padding-block:112px;border-top:1px solid var(--line)}
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 4px rgba(60,230,196,.14)}
+.h2{font-size:clamp(34px,4.6vw,60px);line-height:1.02;font-weight:700}
+.lede{color:var(--muted);font-size:19px;max-width:60ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;border:1px solid transparent;font-weight:600;text-decoration:none;cursor:pointer;transition:transform .15s ease, background .15s ease, border-color .15s ease}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:#6E9FFF}
+.btn-ghost{background:transparent;border-color:var(--line-2);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent)}
+.btn:active{transform:translateY(1px)}
+.mono{font-family:var(--f-mono)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+.chip{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line-2);background:transparent;color:var(--text);font-size:14px;cursor:pointer;transition:border-color .15s, color .15s}
+.chip:hover{border-color:var(--accent);color:#fff}
+.chip[aria-pressed="true"]{border-color:var(--accent);background:rgba(79,139,255,.14)}
+.live{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);display:inline-flex;align-items:center;gap:8px}
+.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--signal);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+
+/* NAV */
+header.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:rgba(6,10,18,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:21px;letter-spacing:-.02em}
+.brand b{color:var(--accent);font-weight:800}
+.navlinks{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.navlinks a{padding:10px 12px;text-decoration:none;color:var(--muted);font-size:15px;border-radius:8px}
+.navlinks a:hover{color:var(--text)}
+@media (max-width:760px){.navlinks a.hide-sm{display:none}}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;border-top:0}
+#net{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-inner{position:relative;z-index:1;padding-block:96px 88px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+@media (max-width:960px){.hero-inner{grid-template-columns:minmax(0,1fr);padding-block:64px}}
+.hero h1{font-size:clamp(46px,7.2vw,104px);line-height:.94;font-weight:800;letter-spacing:-.04em;margin-top:24px}
+.hero h1 .think{color:var(--accent)}
+.hero .lede{margin-top:26px;font-size:20px;color:#B8C3D9}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.readout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:44px;max-width:560px}
+.readout div{background:rgba(11,17,32,.92);padding:14px 16px}
+.readout .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.readout .v{font-family:var(--f-display);font-size:24px;font-weight:700;margin-top:2px;font-variant-numeric:tabular-nums}
+.hint{font-family:var(--f-mono);font-size:12px;color:var(--dim);margin-top:14px}
+
+/* CONCIERGE */
+.concierge{background:rgba(11,17,32,.94);display:flex;flex-direction:column;min-height:480px;max-height:560px}
+.c-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.c-head .t{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.06em}
+.c-log{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;min-height:0}
+.msg{max-width:88%;padding:12px 14px;border-radius:12px;font-size:15px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.msg.bot{background:var(--panel-2);border:1px solid var(--line);align-self:flex-start}
+.msg.me{background:var(--accent);color:var(--accent-ink);align-self:flex-end}
+.msg.thinking{color:var(--muted);font-family:var(--f-mono);font-size:13px}
+.c-sugg{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px}
+.c-sugg .chip{min-height:36px;font-size:13px}
+.c-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.c-form input{flex:1;min-width:0;min-height:46px;background:var(--ink);border:1px solid var(--line-2);border-radius:10px;padding:0 14px}
+.c-form input::placeholder{color:var(--dim)}
+.c-note{font-family:var(--f-mono);font-size:11px;color:var(--dim);padding:0 18px 12px}
+
+/* TRUST STRIP */
+.strip{padding-block:22px;display:flex;flex-wrap:wrap;gap:10px 32px;align-items:center;font-family:var(--f-mono);font-size:13.5px;color:var(--muted)}
+.strip span.k{color:var(--dim);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase}
+
+/* SERVICES */
+.svc{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:24px;margin-top:56px}
+@media (max-width:860px){.svc{grid-template-columns:minmax(0,1fr)}}
+.svc-list{display:flex;flex-direction:column;gap:6px}
+.svc-tab{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:left;min-height:58px;padding:0 18px;border-radius:12px;border:1px solid transparent;background:transparent;cursor:pointer;font-family:var(--f-display);font-size:19px;font-weight:700;color:var(--muted);transition:background .15s,color .15s,border-color .15s}
+.svc-tab:hover{color:var(--text);background:var(--panel)}
+.svc-tab[aria-selected="true"]{color:var(--text);background:var(--panel-2);border-color:var(--line-2)}
+.svc-tab .arr{font-family:var(--f-mono);font-size:14px;color:var(--dim)}
+.svc-tab[aria-selected="true"] .arr{color:var(--accent)}
+.svc-panel{padding:36px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;min-height:380px}
+@media (max-width:700px){.svc-panel{grid-template-columns:minmax(0,1fr);padding:24px}}
+.svc-panel h3{font-size:32px;font-weight:700}
+.svc-panel .lede{font-size:17px;margin-top:14px}
+.deliv{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.deliv li{display:flex;gap:12px;color:#C5CEDF;font-size:15.5px}
+.deliv li::before{content:"→";font-family:var(--f-mono);color:var(--accent)}
+.term{background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:18px;font-family:var(--f-mono);font-size:13px;line-height:1.85;color:var(--muted);overflow-x:auto;min-width:0}
+.term .p{color:var(--accent)}
+.term .ok{color:var(--signal)}
+.term .w{color:var(--text)}
+
+/* BUILDER */
+.builder{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px;margin-top:56px;align-items:start}
+@media (max-width:960px){.builder{grid-template-columns:minmax(0,1fr)}}
+.b-form{padding:28px;display:flex;flex-direction:column;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label,.field .lbl{font-size:14px;color:var(--muted)}
+.field input,.field textarea,.field select{background:var(--ink);border:1px solid var(--line-2);border-radius:10px;padding:13px 14px;min-height:48px}
+.field textarea{resize:vertical;min-height:96px}
+.field input::placeholder,.field textarea::placeholder{color:var(--dim)}
+.status{font-family:var(--f-mono);font-size:12.5px;color:var(--dim);min-height:20px}
+.status.err{color:var(--warn)}
+.browser{overflow:hidden;border-radius:14px;border:1px solid var(--line-2);background:var(--panel)}
+.b-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+.b-bar i{width:10px;height:10px;border-radius:50%;background:var(--line-2);display:block}
+.b-url{flex:1;min-width:0;margin-left:8px;font-family:var(--f-mono);font-size:12px;color:var(--muted);background:var(--ink);border-radius:6px;padding:6px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site{transition:background .4s,color .4s;padding:0 0 22px}
+.site-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 22px;font-size:13px;flex-wrap:wrap}
+.site-nav b{font-size:16px}
+.site-nav span{opacity:.7;margin-left:14px}
+.site-hero{padding:34px 22px 30px}
+.site-hero h4{margin:0;font-size:clamp(24px,3.2vw,38px);line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+.site-hero p{margin-top:12px;font-size:14.5px;opacity:.8;max-width:46ch}
+.site-hero .cta{display:inline-block;margin-top:18px;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:600}
+.site-secs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 22px}
+@media (max-width:520px){.site-secs{grid-template-columns:minmax(0,1fr)}}
+.site-sec{border-radius:10px;padding:14px;font-size:13px}
+.site-sec b{display:block;font-size:14px;margin-bottom:4px}
+.site-ai{margin:12px 22px 0;border-radius:10px;padding:14px;font-size:13px}
+.site-ai b{font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.site-ai ul{margin:6px 0 0;padding-left:18px}
+.swatches{display:flex;gap:8px;align-items:center;padding:12px 14px;border-top:1px solid var(--line);font-family:var(--f-mono);font-size:12px;color:var(--muted);flex-wrap:wrap}
+.swatches i{width:22px;height:22px;border-radius:6px;border:1px solid var(--line-2);display:block}
+
+/* ROI */
+.roi{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;margin-top:56px}
+@media (max-width:860px){.roi{grid-template-columns:minmax(0,1fr)}}
+.sliders{padding:28px;display:flex;flex-direction:column;gap:26px}
+.sl-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.sl-top label{color:var(--muted);font-size:15px}
+.sl-top output{font-family:var(--f-mono);font-size:15px;color:var(--text);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px}
+.result{padding:32px;display:flex;flex-direction:column;gap:20px;background:var(--panel-2)}
+.big{font-family:var(--f-display);font-weight:800;font-size:clamp(48px,6vw,76px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--signal)}
+.bar{height:12px;border-radius:999px;background:var(--ink);border:1px solid var(--line);overflow:hidden}
+.bar span{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .35s ease}
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.kv div{border:1px solid var(--line);border-radius:10px;padding:14px}
+.kv .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.kv .v{font-family:var(--f-display);font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
+.fine{font-size:13px;color:var(--dim)}
+
+/* LABS */
+.labs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:56px}
+.lab{padding:26px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s, transform .2s}
+.lab:hover{border-color:var(--line-2);transform:translateY(-2px)}
+.lab .tag{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.lab h3{font-size:22px;font-weight:700}
+.lab p{color:var(--muted);font-size:15.5px}
+.lab .stage{margin-top:auto;font-family:var(--f-mono);font-size:12px;color:var(--signal)}
+
+/* FOUNDER */
+.founder{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;margin-top:56px;align-items:start}
+@media (max-width:900px){.founder{grid-template-columns:minmax(0,1fr)}}
+.timeline{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.timeline li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:20px 0;border-top:1px solid var(--line)}
+.timeline li:last-child{border-bottom:1px solid var(--line)}
+.timeline .org{font-family:var(--f-mono);font-size:12.5px;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;padding-top:3px}
+.timeline b{display:block;font-family:var(--f-display);font-size:19px}
+.timeline span{color:var(--muted);font-size:15.5px}
+@media (max-width:520px){.timeline li{grid-template-columns:minmax(0,1fr);gap:4px}}
+.card-founder{padding:28px}
+.avatar{width:100%;max-width:100%;aspect-ratio:4/3;border-radius:10px;border:1px dashed var(--line-2);display:flex;align-items:center;justify-content:center;color:var(--dim);font-family:var(--f-mono);font-size:13px;background:var(--panel-2)}
+
+/* PROCESS */
+.steps{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}}
+.steps li{counter-increment:s;padding:24px;border-top:2px solid var(--line-2)}
+.steps li::before{content:"0" counter(s);font-family:var(--f-mono);font-size:13px;color:var(--accent)}
+.steps h3{font-size:24px;margin:10px 0 8px}
+.steps p{color:var(--muted);font-size:15.5px}
+
+/* CONTACT */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+@media (max-width:900px){.contact{grid-template-columns:minmax(0,1fr)}}
+.contact h2{font-size:clamp(42px,6vw,84px);line-height:.96;font-weight:800;letter-spacing:-.04em}
+.contact h2 em{font-style:normal;color:var(--accent)}
+.lines{display:flex;flex-direction:column;gap:12px;margin-top:36px}
+.line{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px}
+.line .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.line .v{font-size:18px;user-select:all;overflow-wrap:anywhere}
+.copy{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line-2);background:transparent;cursor:pointer;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.copy:hover{color:var(--text);border-color:var(--accent)}
+.c-panel{padding:30px;display:flex;flex-direction:column;gap:18px}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:520px){.row2{grid-template-columns:minmax(0,1fr)}}
+fieldset{border:0;margin:0;padding:0}
+legend{font-size:14px;color:var(--muted);margin-bottom:10px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.sent{border:1px solid var(--signal);border-radius:12px;padding:16px;color:var(--text);background:rgba(60,230,196,.06);font-size:15px}
+
+footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font-size:14px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.foot a{text-decoration:none;color:var(--muted);padding:8px}
+.foot a:hover{color:var(--text)}
+
+.svc-tab{padding:12px 18px;min-height:66px}
+.svc-tab .sub{font-family:var(--f-body);font-size:13px;font-weight:400;color:var(--dim)}
+
+/* CLIENTS */
+.who{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px;margin-top:48px;align-items:start}
+@media (max-width:900px){.who{grid-template-columns:minmax(0,1fr)}}
+.who-list{display:flex;flex-direction:column;gap:8px}
+.who-btn{display:flex;align-items:center;gap:14px;width:100%;text-align:left;min-height:66px;padding:12px 18px;border-radius:12px;border:1px solid var(--line);background:var(--panel);cursor:pointer;transition:border-color .15s, background .15s}
+.who-btn:hover{border-color:var(--line-2)}
+.who-btn[aria-pressed="true"]{border-color:var(--accent);background:var(--panel-2)}
+.who-btn b{font-family:var(--f-display);font-size:18px;display:block}
+.who-btn span{color:var(--muted);font-size:14px}
+.who-out{padding:32px;display:flex;flex-direction:column;gap:20px}
+.who-out h3{font-size:clamp(24px,2.6vw,30px);line-height:1.15}
+.stack{display:flex;flex-wrap:wrap;gap:8px}
+.stack span{font-family:var(--f-mono);font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid var(--line-2);color:var(--text);background:var(--ink)}
+.stack span:first-child{border-color:var(--signal);color:var(--signal)}
+
+/* PRINCIPLES */
+.values{list-style:none;margin:48px 0 0;padding:0;border-top:1px solid var(--line)}
+.values li{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);transition:padding .2s}
+.values li:hover{padding-left:12px}
+.values b{font-family:var(--f-display);font-size:clamp(30px,3.6vw,48px);font-weight:800;letter-spacing:-.03em;transition:color .2s}
+.values li:hover b{color:var(--accent)}
+.values span{color:var(--muted);font-size:19px}
+@media (max-width:640px){.values li{grid-template-columns:minmax(0,1fr);gap:4px}}
+.isnot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:56px}
+@media (max-width:760px){.isnot{grid-template-columns:minmax(0,1fr)}}
+.isnot .panel{padding:28px}
+.isnot ul{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;font-size:17px}
+.isnot .no li{color:var(--dim);text-decoration:line-through;text-decoration-color:var(--line-2)}
+.isnot .yes li{display:flex;gap:12px}
+.isnot .yes li::before{content:"✓";color:var(--signal);font-family:var(--f-mono)}
+
+/* MISSION */
+.mvp{border-top:1px solid var(--line)}
+.mvp > div{padding:24px 0;border-bottom:1px solid var(--line)}
+.mvp .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.mvp p{font-size:19px;margin-top:8px;color:#C5CEDF;max-width:60ch}
+.creds{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:var(--muted)}
+.creds li{display:flex;gap:10px}
+.creds li::before{content:"—";color:var(--accent)}
+
+/* HERO TABS + STACK BUILDER */
+.c-tabs{display:flex;gap:4px;background:var(--ink);border:1px solid var(--line);border-radius:999px;padding:3px}
+.c-tab{min-height:34px;padding:0 14px;border-radius:999px;border:0;background:transparent;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer}
+.c-tab[aria-selected="true"]{background:var(--panel-2);color:var(--text);box-shadow:inset 0 0 0 1px var(--line-2)}
+.pane{display:flex;flex-direction:column;flex:1;min-height:0}
+.sw{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;min-height:0}
+.sw-q{font-family:var(--f-display);font-size:22px;font-weight:700;line-height:1.2}
+.sw-prog{display:flex;gap:6px}
+.sw-prog i{flex:1;height:4px;border-radius:4px;background:var(--line);display:block;transition:background .3s}
+.sw-prog i.on{background:var(--accent)}
+.sw-opts{display:flex;flex-wrap:wrap;gap:8px}
+.score{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:12px;align-items:center;font-size:14.5px}
+.score .t{height:8px;border-radius:8px;background:var(--ink);border:1px solid var(--line);overflow:hidden}
+.score .t span{display:block;height:100%;background:var(--accent);transition:width .6s ease}
+.score:first-child .t span{background:var(--signal)}
+.phase{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;font-size:14.5px}
+.phase .n{font-family:var(--f-mono);font-size:12px;color:var(--accent);padding-top:2px}
+
+/* SYSTEM MAP */
+.svc{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+.svc-panel{grid-template-columns:minmax(0,1fr);min-height:0;gap:24px}
+.map{position:relative;width:100%;max-width:100%;aspect-ratio:1/1}
+.map-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.map-lines line{stroke:var(--line-2);stroke-width:.35;stroke-dasharray:1 1.5;animation:flowdash 4s linear infinite}
+.map-lines line.ring{stroke:var(--line);stroke-dasharray:none;animation:none}
+.map-lines line.on{stroke:var(--accent);stroke-width:.7;animation-duration:1.2s}
+@keyframes flowdash{to{stroke-dashoffset:-10}}
+.map .svc-list{position:absolute;inset:0;display:block}
+.map .svc-tab{position:absolute;transform:translate(-50%,-50%);width:144px;min-height:0;padding:12px 10px;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;background:var(--panel);border-color:var(--line);font-size:17px}
+.map .svc-tab .sub{font-size:11.5px;line-height:1.3}
+.map .svc-tab:hover{border-color:var(--line-2)}
+.map .svc-tab[aria-selected="true"]{border-color:var(--accent);background:var(--panel-2);box-shadow:0 0 0 6px rgba(79,139,255,.12)}
+.map-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:128px;height:128px;border-radius:50%;border:1px solid var(--line-2);background:radial-gradient(circle,rgba(79,139,255,.22),rgba(6,10,18,.95) 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px}
+.map-core .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.map-core b{font-family:var(--f-display);font-size:17px;line-height:1.1}
+.map-core::after{content:"";position:absolute;inset:-12px;border-radius:50%;border:1px solid rgba(60,230,196,.4);animation:ping 2.8s ease-out infinite}
+@keyframes ping{from{transform:scale(.85);opacity:1}to{transform:scale(1.25);opacity:0}}
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;margin-top:22px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--ink)}
+.seg-b{min-height:36px;padding:0 14px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-size:13.5px;font-weight:600;cursor:pointer}
+.seg-b[aria-pressed="true"]{background:var(--panel-2);color:var(--text);box-shadow:inset 0 0 0 1px var(--line-2)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tools span{font-family:var(--f-mono);font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid var(--line-2);background:var(--ink)}
+@media (max-width:1060px){.svc{grid-template-columns:minmax(0,1fr)}.map{max-width:560px;margin:0 auto}}
+@media (max-width:600px){.map{aspect-ratio:auto}.map-lines,.map-core{display:none}.map .svc-list{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.map .svc-tab{position:static;transform:none;width:100%}}
+
+/* WORKFLOW DEMO */
+.flow-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:40px}
+.flow{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.flow{grid-template-columns:minmax(0,1fr)}}
+.flow-stage{position:relative;overflow:hidden;width:100%;text-align:left;padding:18px;border-radius:12px;border:1px solid var(--line);background:var(--panel);cursor:pointer;color:var(--text);display:flex;flex-direction:column;gap:6px;min-height:112px;transition:border-color .2s, background .2s}
+.flow-stage:hover{border-color:var(--line-2)}
+.flow-stage .n{font-family:var(--f-mono);font-size:12px;color:var(--dim)}
+.flow-stage b{font-family:var(--f-display);font-size:21px}
+.flow-stage .pw{font-family:var(--f-mono);font-size:11.5px;color:var(--muted)}
+.flow-stage .bar2{position:absolute;left:0;right:0;bottom:0;height:3px}
+.flow-stage .bar2 span{display:block;height:100%;width:0;background:var(--accent)}
+.flow-stage.done{border-color:var(--line-2)}
+.flow-stage.done .n{color:var(--accent)}
+.flow-stage.done .bar2 span{width:100%}
+.flow-stage.cur{border-color:var(--accent);background:var(--panel-2)}
+.flow-stage.cur .n{color:var(--signal)}
+.flow-stage.cur .bar2 span{animation:fillbar 2.8s linear forwards}
+.flow.paused .flow-stage.cur .bar2 span{animation:none;width:100%}
+@keyframes fillbar{to{width:100%}}
+.flow-detail{margin-top:16px;padding:26px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:820px){.flow-detail{grid-template-columns:minmax(0,1fr)}}
+.payload{background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:16px;font-family:var(--f-mono);font-size:13px;line-height:1.8;color:var(--signal);white-space:pre-wrap;overflow-wrap:anywhere}
+
+/* GUIDED INTAKE */
+.intake{display:flex;flex-direction:column;min-height:520px}
+.in-head{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.in-log{flex:1;padding:18px;display:flex;flex-direction:column;gap:12px}
+.in-ctl{padding:16px 18px 20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.brief{align-self:stretch;border:1px solid var(--signal);border-radius:12px;padding:16px;background:rgba(60,230,196,.06);font-size:14.5px;display:flex;flex-direction:column;gap:10px}
+.brief .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+
+/* MICROINTERACTIONS */
+.lab{background:radial-gradient(360px circle at var(--mx,-500px) var(--my,-500px),rgba(79,139,255,.13),transparent 60%),var(--panel)}
+.btn-primary{box-shadow:0 0 0 0 rgba(79,139,255,0);transition:transform .15s ease, background .15s ease, box-shadow .25s ease}
+.btn-primary:hover{box-shadow:0 0 0 6px rgba(79,139,255,.18)}
+@keyframes rise{from{opacity:.15;transform:translateY(28px)}to{opacity:1;transform:none}}
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .band .wrap > .eyebrow,.band .h2,.values li,.steps li,.flow-stage{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+  }
+}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="OmniThynk home"><img src="/logo.png" alt="OmniThynk" width="165" height="40" style="height:40px;width:auto;display:block"></a>
+    <nav class="navlinks" aria-label="Main">
+      <a href="#services" class="hide-sm">Products</a>
+      <a href="#flow" class="hide-sm">See it work</a>
+      <a href="#build" class="hide-sm">Live demo</a>
+      <a href="#labs" class="hide-sm">Labs</a>
+      <a href="#about" class="hide-sm">About</a>
+      <a href="#contact" class="btn btn-primary" style="min-height:42px;padding:0 18px;color:var(--accent-ink)">Book a strategy call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" aria-label="Introduction">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>AI systems · Infrastructure · Security · Platforms</div>
+      <h1>Built to <span class="think">think.</span><br>Trained to evolve.</h1>
+      <p class="lede">We embed intelligence into every layer of a business, from backend infrastructure to the moment a customer clicks. Custom AI, cloud, security and platforms that scale with you from v1 to v100. Everything on this page is live. Try it.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#flow">Watch AI work a case →</a>
+        <a class="btn btn-ghost" href="#build">Generate a website concept</a>
+      </div>
+      <div class="readout" aria-label="Network status">
+        <div><div class="k">Nodes</div><div class="v" id="r-nodes">0</div></div>
+        <div><div class="k">Links</div><div class="v" id="r-links">0</div></div>
+        <div><div class="k">Signals</div><div class="v" id="r-sig">0</div></div>
+      </div>
+      <p class="hint">Move your cursor over the network. It reorganizes around you.</p>
+    </div>
+
+    <!-- Live AI concierge -->
+    <div class="panel concierge" id="concierge" aria-label="Ask OmniThynk">
+      <div class="c-head">
+        <div class="c-tabs" role="tablist" aria-label="Hero tools">
+          <button class="c-tab" role="tab" id="tab-stack" aria-selected="true" aria-controls="pane-stack">Build my AI stack</button>
+          <button class="c-tab" role="tab" id="tab-ask" aria-selected="false" aria-controls="pane-ask" tabindex="-1">Ask AI</button>
+        </div>
+        <span class="live" id="c-state">Live</span>
+      </div>
+      <div class="pane" id="pane-stack" role="tabpanel" aria-labelledby="tab-stack">
+        <div class="sw" id="sw" aria-live="polite"></div>
+      </div>
+      <div class="pane" id="pane-ask" role="tabpanel" aria-labelledby="tab-ask" hidden>
+      <div class="c-log" id="c-log" aria-live="polite">
+        <div class="msg bot">Hi, I'm OmniThynk's AI concierge. Ask me what we build, how an AI agent could help your business, or what a project with us looks like.</div>
+      </div>
+      <div class="c-sugg" id="c-sugg">
+        <button class="chip" type="button">What could an AI agent do for a 20-person company?</button>
+        <button class="chip" type="button">What does OmniSec cover?</button>
+        <button class="chip" type="button">I'm a solo creator. Where should I start?</button>
+      </div>
+      <form class="c-form" id="c-form">
+        <label for="c-input" class="sr" style="position:absolute;left:-9999px">Your question</label>
+        <input id="c-input" type="text" placeholder="Ask about OmniAI, OmniSec, launching an MVP…" autocomplete="off">
+        <button class="btn btn-primary" type="submit" id="c-send" style="min-height:46px;padding:0 18px">Ask</button>
+      </form>
+      <p class="c-note" id="c-note">Answers are generated live by AI and may be imperfect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap strip">
+    <span class="k">We build with</span>
+    <span>Large language models</span><span>AWS</span><span>Microsoft Azure</span><span>Google Cloud</span><span>Kubernetes</span><span>React &amp; Next.js</span><span>Python</span><span>Salesforce</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="band" id="services" style="border-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Products &amp; services</div>
+    <h2 class="h2" style="margin-top:16px;max-width:18ch">Five products. One intelligence layer.</h2>
+    <p class="lede" style="margin-top:18px">Every product plugs into the same core. Select one to see what we build, where it is used and what it runs on.</p>
+    <div class="svc">
+      <div class="map" id="svc-map">
+        <svg class="map-lines" id="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="map-core" aria-hidden="true"><span class="k">Core</span><b>Your<br>business</b></div>
+        <div class="svc-list" role="tablist" aria-label="Products" id="svc-tabs"></div>
+      </div>
+      <div class="panel svc-panel" role="tabpanel" id="svc-panel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="band" id="flow">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Intelligence in motion</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">Watch an AI workflow handle a real case.</h2>
+    <p class="lede" style="margin-top:18px">Pick a scenario. Each stage shows what the system sees and what it decides. Click any stage to stop and inspect it.</p>
+    <div class="flow-top">
+      <div class="chips" id="flow-sc" role="group" aria-label="Scenario"></div>
+      <button type="button" class="btn btn-ghost" id="flow-play" style="min-height:42px;padding:0 18px">Pause</button>
+    </div>
+    <ol class="flow" id="flow-stages"></ol>
+    <div class="panel flow-detail" id="flow-detail" aria-live="polite"></div>
+    <p class="fine" style="margin-top:12px">Example data. Every workflow we build runs on your own systems and your own rules.</p>
+  </div>
+</section>
+
+<!-- LIVE WEBSITE BUILDER -->
+<section class="band" id="build">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Live demo</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">Describe your business. Watch AI draft your website.</h2>
+    <p class="lede" style="margin-top:18px">This is the same first step we run with clients: an AI-generated concept in seconds, then our designers and engineers take it to production.</p>
+    <div class="builder">
+      <form class="panel b-form" id="b-form">
+        <div class="field">
+          <label for="b-biz">Your business</label>
+          <input id="b-biz" type="text" value="Family-owned HVAC company in Columbus, Ohio">
+        </div>
+        <div class="field">
+          <label for="b-goal">What should the website do?</label>
+          <textarea id="b-goal">Get more service calls and maintenance-plan signups from homeowners.</textarea>
+        </div>
+        <div class="field">
+          <label for="b-vibe">Feel</label>
+          <select id="b-vibe">
+            <option>Trustworthy and local</option>
+            <option>Bold and modern</option>
+            <option>Premium and minimal</option>
+            <option>Playful and friendly</option>
+            <option>Technical and precise</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit" id="b-go">Generate concept</button>
+        <p class="status" id="b-status">Showing an example concept. Edit the fields and generate your own.</p>
+      </form>
+      <div>
+        <div class="browser">
+          <div class="b-bar"><i></i><i></i><i></i><div class="b-url" id="p-url">https://www.example-hvac.com</div></div>
+          <div class="site" id="p-site"></div>
+          <div class="swatches" id="p-sw"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="band" id="clients">
+  <div class="wrap">
+    <div class="eyebrow">Who we build for</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">Pick the one that sounds like you.</h2>
+    <div class="who">
+      <div class="who-list" id="who-list" aria-label="Client types"></div>
+      <div class="panel who-out" id="who-out" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="band" id="roi">
+  <div class="wrap">
+    <div class="eyebrow">AI automation estimator</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">How much time is repetitive work costing you?</h2>
+    <div class="roi">
+      <div class="panel sliders">
+        <div><div class="sl-top"><label for="s-team">People doing repetitive work</label><output id="o-team" for="s-team">8</output></div><input id="s-team" type="range" min="1" max="200" value="8"></div>
+        <div><div class="sl-top"><label for="s-hrs">Hours per person, per week</label><output id="o-hrs" for="s-hrs">10</output></div><input id="s-hrs" type="range" min="1" max="30" value="10"></div>
+        <div><div class="sl-top"><label for="s-rate">Loaded hourly cost</label><output id="o-rate" for="s-rate">$45</output></div><input id="s-rate" type="range" min="15" max="200" step="5" value="45"></div>
+        <div><div class="sl-top"><label for="s-pct">Share an AI agent can take on</label><output id="o-pct" for="s-pct">40%</output></div><input id="s-pct" type="range" min="10" max="80" step="5" value="40"></div>
+      </div>
+      <div class="panel result" aria-live="polite">
+        <div class="eyebrow">Estimated annual value</div>
+        <div class="big" id="r-dollars">$0</div>
+        <div class="bar" aria-hidden="true"><span id="r-bar" style="width:0%"></span></div>
+        <div class="kv">
+          <div><div class="k">Hours returned / yr</div><div class="v" id="r-hours">0</div></div>
+          <div><div class="k">Full-time equivalents</div><div class="v" id="r-fte">0</div></div>
+        </div>
+        <p class="fine">A rough estimate based on 48 working weeks. Real results depend on your workflows, which is what our discovery session measures.</p>
+        <a class="btn btn-ghost" href="#contact" style="align-self:flex-start">Get a real assessment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="band" id="process">
+  <div class="wrap">
+    <div class="eyebrow">How a project runs</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">From first call to a system that keeps improving.</h2>
+    <ol class="steps">
+      <li><h3>Discover</h3><p>We map your goals and workflows and find where time and revenue leak.</p></li>
+      <li><h3>Design</h3><p>A clickable prototype and plan you approve before production code starts.</p></li>
+      <li><h3>Deploy</h3><p>We build, integrate with your systems and launch without disrupting operations.</p></li>
+      <li><h3>Evolve</h3><p>We measure, retrain and improve every month the system runs.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="band" id="principles">
+  <div class="wrap">
+    <div class="eyebrow">What we stand for</div>
+    <h2 class="h2" style="margin-top:16px;max-width:18ch">A think tank that builds.</h2>
+    <ul class="values">
+      <li><b>Mastery</b><span>We don't just build. We build better.</span></li>
+      <li><b>Clarity</b><span>Simplicity is power.</span></li>
+      <li><b>Agility</b><span>We pivot with precision.</span></li>
+      <li><b>Empowerment</b><span>The tools we build are made to outgrow us.</span></li>
+      <li><b>Truth</b><span>No hype, no buzzwords. Real results or nothing.</span></li>
+    </ul>
+    <div class="isnot">
+      <div class="panel no"><div class="eyebrow">OmniThynk is not</div><ul><li>A web design agency chasing fads</li><li>A no-code gimmick factory</li><li>A government consultancy in disguise</li><li>A product without purpose</li></ul></div>
+      <div class="panel yes" style="border-color:var(--line-2)"><div class="eyebrow">OmniThynk is</div><ul><li>An intelligence-first, precision-driven partner</li><li>A brand that scales with you, from v1 to v100</li><li>A think tank that builds</li><li>A tech company with backbone and principles</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="band" id="about">
+  <div class="wrap">
+    <div class="eyebrow">Why we exist</div>
+    <h2 class="h2" style="margin-top:16px;max-width:22ch">Intelligence in the foundation of every digital experience.</h2>
+    <div class="founder">
+      <div class="mvp">
+        <div><div class="k">Mission</div><p>To build intelligent, adaptive solutions that empower businesses and individuals to outthink complexity, automate growth, and evolve with confidence in an AI-driven world.</p></div>
+        <div><div class="k">Vision</div><p>To become the trusted partner for bold thinkers, builders and brands that want more than just tools. They want transformation through intelligence.</p></div>
+        <div><div class="k">Purpose</div><p>We transform how businesses think, move and grow by embedding intelligence into every layer, from backend infrastructure to customer touchpoints.</p></div>
+      </div>
+      <aside class="panel card-founder" aria-label="Leadership">
+        <div class="avatar">[ Founder headshot ]</div>
+        <h3 style="font-size:26px;margin-top:20px">Dr. Devin Faggs</h3>
+        <p class="mono" style="font-size:12.5px;color:var(--accent);letter-spacing:.06em;margin-top:4px">FOUNDER &amp; CEO · DBA, STRATEGY &amp; INNOVATION</p>
+        <p style="color:var(--muted);font-size:15.5px;margin-top:14px">Two decades leading complex technology and R&amp;D programs, now focused on building intelligent systems for businesses that want to grow.</p>
+        <ul class="creds">
+          <li>Former Contracting Officer, National Science Foundation</li>
+          <li>Department of Energy / NNSA programs</li>
+          <li>Battelle / PNNL fellow</li>
+          <li>U.S. Air Force veteran</li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:14px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)">
+          <div style="width:44px;height:44px;border-radius:50%;border:1px dashed var(--line-2);background:var(--panel-2)"></div>
+          <div><b>Tim Jones</b><div style="color:var(--muted);font-size:14px">Chief Technology Officer</div></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- LABS -->
+<section class="band" id="labs">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>OmniThynk Labs · Opening soon</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">A place to experiment with AI before you bet on it.</h2>
+    <p class="lede" style="margin-top:18px">Labs is opening for small businesses and creators who want hands-on time with AI. Try agents on your own material, learn what works, and keep what pays off.</p>
+    <div class="labs">
+      <article class="panel lab"><span class="tag">Sandbox</span><h3>Try AI on your own work</h3><p>Private environments to test agents on your documents, inbox or catalog before you commit.</p><span class="stage">Planned</span></article>
+      <article class="panel lab"><span class="tag">Starter kits</span><h3>Ready-made agents</h3><p>Templates for support, content, scheduling and lead follow-up that you can adapt in an afternoon.</p><span class="stage">Planned</span></article>
+      <article class="panel lab"><span class="tag">Learning</span><h3>Workshops &amp; office hours</h3><p>Live sessions with our engineers to get unstuck and learn what AI can and can't do for you.</p><span class="stage">Planned</span></article>
+      <article class="panel lab"><span class="tag">Platforms</span><h3>Early access</h3><p>Labs members get first access to the AI-native platforms OmniThynk is building.</p><span class="stage">On the roadmap</span></article>
+    </div>
+    <a class="btn btn-primary" href="#contact" style="margin-top:32px">Join the Labs waitlist</a>
+  </div>
+</section>
+
+<!-- WORK (placeholder) -->
+<section class="band" id="work">
+  <div class="wrap">
+    <div class="eyebrow">Selected work</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">Proof, not promises.</h2>
+    <div class="labs">
+      <article class="panel lab"><span class="tag">[Industry] · Website + AI concierge</span><h3>[Client name]</h3><p>[One-sentence problem]. [What we built]. [Result with a real number].</p><span class="stage">Case study placeholder</span></article>
+      <article class="panel lab"><span class="tag">[Industry] · AI agent</span><h3>[Client name]</h3><p>[One-sentence problem]. [What we built]. [Result with a real number].</p><span class="stage">Case study placeholder</span></article>
+      <article class="panel lab"><span class="tag">[Industry] · Cloud / CRM</span><h3>[Client name]</h3><p>[One-sentence problem]. [What we built]. [Result with a real number].</p><span class="stage">Case study placeholder</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section class="band" id="engage">
+  <div class="wrap">
+    <div class="eyebrow">Ways to work with us</div>
+    <h2 class="h2" style="margin-top:16px;max-width:20ch">Start small. Scale what works.</h2>
+    <div class="labs">
+      <article class="panel lab"><span class="tag">2 weeks</span><h3>AI Opportunity Sprint</h3><p>We review your workflows and hand you a prioritized, costed AI roadmap you can act on with or without us.</p><span class="stage" style="color:var(--text)">From [$PRICE]</span></article>
+      <article class="panel lab" style="border-color:var(--accent)"><span class="tag" style="color:var(--accent)">Most requested</span><h3>OmniLaunch Build</h3><p>An MVP or conversion-focused website with AI built in, designed and shipped with lean methodology.</p><span class="stage" style="color:var(--text)">From [$PRICE]</span></article>
+      <article class="panel lab"><span class="tag">Monthly subscription</span><h3>Infrastructure Support</h3><p>Ongoing cloud, DevOps and security support that scales with your business, from v1 to v100.</p><span class="stage" style="color:var(--text)">From [$PRICE]/mo</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="band" id="faq">
+  <div class="wrap" style="max-width:900px">
+    <div class="eyebrow">Questions</div>
+    <h2 class="h2" style="margin-top:16px">Before you reach out.</h2>
+    <div style="margin-top:36px;display:flex;flex-direction:column;gap:10px">
+      <details class="panel" style="padding:18px 22px"><summary style="cursor:pointer;font-family:var(--f-display);font-size:19px;font-weight:700">How long does a new website take?</summary><p style="color:var(--muted);margin-top:12px">[Typical timeline range]. A clickable prototype comes first, so you see the site before we build it.</p></details>
+      <details class="panel" style="padding:18px 22px"><summary style="cursor:pointer;font-family:var(--f-display);font-size:19px;font-weight:700">Is our data safe with your AI systems?</summary><p style="color:var(--muted);margin-top:12px">We design for security by default: your data stays in your accounts, access is logged, and nothing is used to train public models. [Add your specific policy.]</p></details>
+      <details class="panel" style="padding:18px 22px"><summary style="cursor:pointer;font-family:var(--f-display);font-size:19px;font-weight:700">Do we need technical staff to work with you?</summary><p style="color:var(--muted);margin-top:12px">No. We handle the engineering and train your team to run what we deliver.</p></details>
+      <details class="panel" style="padding:18px 22px"><summary style="cursor:pointer;font-family:var(--f-display);font-size:19px;font-weight:700">Can you work with our existing tools?</summary><p style="color:var(--muted);margin-top:12px">Yes. Integration is part of every project, from Salesforce and Microsoft 365 to custom databases.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="band" id="contact">
+  <div class="wrap contact">
+    <div>
+      <div class="eyebrow">Start a project</div>
+      <h2 style="margin-top:16px">Let's build something that <em>thinks.</em></h2>
+      <p class="lede" style="margin-top:24px">Answer three quick questions and we'll turn them into a project brief. You'll hear back within one business day.</p>
+      <div class="lines">
+        <div class="line"><div><div class="k">Phone</div><div class="v">+1 (513) 497-0420</div></div><button class="copy" type="button" data-copy="+1 (513) 497-0420">Copy</button></div>
+        <div class="line"><div><div class="k">Email</div><div class="v">omnithynk@gmail.com</div></div><button class="copy" type="button" data-copy="omnithynk@gmail.com">Copy</button></div>
+      </div>
+    </div>
+    <div class="panel intake" id="intake" aria-label="Project intake">
+      <div class="in-head"><span class="mono" style="font-size:12px;color:var(--muted)">omnithynk://intake</span><span class="mono" id="in-step" style="font-size:12px;color:var(--dim)">1 / 4</span></div>
+      <div class="in-log" id="in-log" aria-live="polite"></div>
+      <div class="in-ctl" id="in-ctl"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap"><img src="/logo.png" alt="OmniThynk" width="140" height="34" style="height:34px;width:auto;display:block"><span>Built to think. Trained to evolve.</span></div>
+    <div><a href="https://linkedin.com">LinkedIn</a><a href="https://instagram.com">Instagram</a><a href="https://facebook.com">Facebook</a></div>
+    <div>© 2026 OmniThynk LLC</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let sample=null;
+
+/* ---------- Neural network hero ---------- */
+const cv = document.getElementById('net'), ctx = cv.getContext('2d');
+let W=0,H=0,dpr=1,nodes=[],pulses=[],mouse={x:-9999,y:-9999,on:false},running=true,sigCount=0;
+function resize(){
+  const r = cv.getBoundingClientRect(); dpr = Math.min(window.devicePixelRatio||1,2);
+  W=r.width; H=r.height; cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+  const n = Math.round(Math.min(110, Math.max(40, W*H/14000)));
+  nodes = Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:1.2+Math.random()*1.8}));
+  document.getElementById('r-nodes').textContent = n;
+  if(reduce) draw();
+}
+const LINK=130;
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  let links=0;
+  for(const p of nodes){
+    if(!reduce){
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>W) p.vx*=-1; if(p.y<0||p.y>H) p.vy*=-1;
+      if(mouse.on){const dx=mouse.x-p.x,dy=mouse.y-p.y,d=Math.hypot(dx,dy); if(d<200&&d>1){p.x+=dx/d*.6;p.y+=dy/d*.6;}}
+    }
+  }
+  for(let i=0;i<nodes.length;i++){
+    const a=nodes[i];
+    for(let j=i+1;j<nodes.length;j++){
+      const b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy;
+      if(d<LINK*LINK){
+        links++;
+        const dd=Math.sqrt(d),near=mouse.on&&Math.hypot(mouse.x-(a.x+b.x)/2,mouse.y-(a.y+b.y)/2)<170;
+        ctx.strokeStyle = near?`rgba(79,139,255,${.65*(1-dd/LINK)})`:`rgba(120,150,210,${.16*(1-dd/LINK)})`;
+        ctx.lineWidth = near?1.2:.8;
+        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        if(!reduce && Math.random()<(near?.004:.0006) && pulses.length<40){pulses.push({a,b,t:0}); sigCount++;}
+      }
+    }
+  }
+  for(const p of nodes){
+    const near = mouse.on && Math.hypot(mouse.x-p.x,mouse.y-p.y)<170;
+    ctx.fillStyle = near?'#9FC0FF':'rgba(160,185,235,.55)';
+    ctx.beginPath(); ctx.arc(p.x,p.y,near?p.r+1:p.r,0,Math.PI*2); ctx.fill();
+  }
+  for(let k=pulses.length-1;k>=0;k--){
+    const s=pulses[k]; s.t+=.025;
+    if(s.t>=1){pulses.splice(k,1);continue;}
+    const x=s.a.x+(s.b.x-s.a.x)*s.t,y=s.a.y+(s.b.y-s.a.y)*s.t;
+    ctx.fillStyle='#3CE6C4'; ctx.shadowColor='#3CE6C4'; ctx.shadowBlur=10;
+    ctx.beginPath(); ctx.arc(x,y,2.4,0,Math.PI*2); ctx.fill(); ctx.shadowBlur=0;
+  }
+  document.getElementById('r-links').textContent = links;
+  document.getElementById('r-sig').textContent = sigCount.toLocaleString();
+}
+function loop(){ if(running) draw(); requestAnimationFrame(loop); }
+const hero = document.querySelector('.hero');
+hero.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;mouse.on=true; if(reduce) draw();});
+hero.addEventListener('pointerleave',()=>{mouse.on=false; if(reduce) draw();});
+new ResizeObserver(resize).observe(hero);
+resize();
+if(!reduce){
+  new IntersectionObserver(es=>{running=es[0].isIntersecting;}).observe(hero);
+  requestAnimationFrame(loop);
+}
+
+/* ---------- Services tabs ---------- */
+const SERVICES=[
+ {k:'OmniAI',u:['Support agent that resolves routine tickets and hands off the rest','Sales assistant that qualifies leads and books calls','Knowledge assistant over your documents and policies'],tools:['Claude','GPT','Llama','LangChain','Vector search','Python'],sub:'Custom AI systems',d:'Artificial intelligence built around your business: models tuned on your data and agents that handle real work in support, sales and operations.',l:['LLM tuning and training on your own data','Automated customer support, sales and operations','AI embedded in your apps, platforms and products','Human review wherever it matters'],t:[['p','$ omni ai deploy support-agent'],['','  knowledge base ....... '],['ok','indexed'],['','  tone + policy tuning . '],['ok','passed review'],['','  channels ............. '],['w','chat, email, sms'],['','  status ............... '],['ok','live']]},
+ {k:'Smart Infrastructure',u:['Move a monolith to containers without downtime','Cut cloud spend with right-sizing and autoscaling','Ship daily with automated tests and deploys'],tools:['AWS','Azure','Google Cloud','Kubernetes','Terraform','GitHub Actions'],sub:'Cloud & DevOps',d:'Scalable backend architecture and cloud-native deployments that keep up when growth arrives, with automation that lets your team ship fast.',l:['Scalable backend architecture','Cloud-native deployments on AWS, Azure and GCP','CI/CD automation for fast-moving teams','Monitoring and cost control'],t:[['p','$ omni infra up --env prod'],['','  clusters ............. '],['ok','healthy'],['','  ci/cd pipeline ....... '],['ok','green'],['','  autoscaling .......... '],['ok','on'],['','  rollback plan ........ '],['w','ready']]},
+ {k:'OmniLaunch',u:['Investor-ready MVP for a new product','Membership or course platform for a creator','Customer portal connected to your existing systems'],tools:['Next.js','React','React Native','Supabase','Stripe','Low-code tools'],sub:'Startup acceleration',d:'A full product team for founders: web and app development, lean MVPs, and the right mix of code and no-code to get to market fast.',l:['Full-stack web and app development','MVP design and build with lean methodology','No-code and low-code integration strategy','Conversion-focused websites with AI built in'],t:[['p','$ omni launch mvp'],['','  user stories ......... '],['w','scoped'],['','  clickable prototype .. '],['ok','approved'],['','  web + app ............ '],['ok','shipped'],['','  analytics ............ '],['ok','tracking']]},
+ {k:'OmniSec',u:['Security baseline before a funding round or enterprise deal','Payment and privacy readiness for an online store','Continuous monitoring with alerts your team can act on'],tools:['SOC 2 readiness','OWASP','Cloud security posture','SIEM','SSO / MFA','Encryption'],sub:'Business-grade cybersecurity',d:'Security designed in from day one, so customers can trust you with their data and their payments.',l:['Digital trust frameworks for eCommerce, fintech and SaaS','Real-time threat detection','Data privacy compliance','Security-by-design reviews on every build'],t:[['p','$ omni sec scan --continuous'],['','  threat detection ..... '],['ok','active'],['','  privacy controls ..... '],['ok','mapped'],['','  open critical issues . '],['w','0'],['','  trust report ......... '],['ok','ready']]},
+ {k:'ThinkLayer',u:['Executive KPI dashboard that updates itself','Churn-risk alerts that trigger a retention workflow','Sales forecast that explains its own drivers'],tools:['Power BI','Looker','dbt','Snowflake / BigQuery','Python ML','HubSpot / Salesforce'],sub:'AI-enhanced business platforms',d:'Dashboards, forecasts and smart workflows that show what is working and act on it before the quarter ends.',l:['Custom KPI dashboards and forecasting','Predictive analytics for decision-making','Smart workflows for lead nurturing, retention and conversion','Reports your team will actually read'],t:[['p','$ omni think forecast --next-quarter'],['','  sources connected .... '],['ok','synced'],['','  churn-risk model ..... '],['ok','updated'],['','  at-risk accounts ..... '],['w','flagged'],['','  nurture workflow ..... '],['ok','triggered']]}
+];
+const tabs=document.getElementById('svc-tabs'), panel=document.getElementById('svc-panel'), mapLines=document.getElementById('map-lines');
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+let typeTimer, svcCur=0;
+const NS='http://www.w3.org/2000/svg';
+const POS=SERVICES.map((_,i)=>{const a=(-90+i*72)*Math.PI/180;return [50+34*Math.cos(a),50+34*Math.sin(a)];});
+POS.forEach((p,i)=>{const n=POS[(i+1)%POS.length],l=document.createElementNS(NS,'line');l.setAttribute('x1',p[0]);l.setAttribute('y1',p[1]);l.setAttribute('x2',n[0]);l.setAttribute('y2',n[1]);l.setAttribute('class','ring');mapLines.appendChild(l);});
+POS.forEach((p,i)=>{const l=document.createElementNS(NS,'line');l.setAttribute('x1',50);l.setAttribute('y1',50);l.setAttribute('x2',p[0]);l.setAttribute('y2',p[1]);l.setAttribute('data-i',i);mapLines.appendChild(l);});
+function svcDetail(j){
+  const s=SERVICES[svcCur], d=document.getElementById('svc-detail');
+  panel.querySelectorAll('.seg-b').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.j===j));
+  d.innerHTML = j===2 ? `<div class="tools">${s.tools.map(x=>`<span>${esc(x)}</span>`).join('')}</div>` : `<ul class="deliv">${(j===0?s.l:s.u).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+}
+function showSvc(i){
+  svcCur=i;
+  [...tabs.children].forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1;});
+  mapLines.querySelectorAll('line[data-i]').forEach(l=>l.classList.toggle('on',+l.getAttribute('data-i')===i));
+  const s=SERVICES[i];
+  panel.innerHTML=`<div><div class="eyebrow">${esc(s.sub)}</div><h3 style="margin-top:10px">${esc(s.k)}</h3><p class="lede">${esc(s.d)}</p><div class="seg" role="group" aria-label="Details">${['What we build','Use cases','Tools'].map((n,j)=>`<button type="button" class="seg-b" data-j="${j}">${n}</button>`).join('')}</div><div id="svc-detail"></div></div><div class="term" id="term" aria-hidden="true"></div>`;
+  panel.querySelectorAll('.seg-b').forEach(b=>b.onclick=()=>svcDetail(+b.dataset.j));
+  svcDetail(0);
+  const term=document.getElementById('term'); clearTimeout(typeTimer);
+  const lines=[]; let cur='';
+  s.t.forEach(([c,txt])=>{const span=`<span class="${c}">${esc(txt)}</span>`; if(c==='p'){lines.push(span);} else if(c===''){cur=span;} else {lines.push(cur+span);cur='';}});
+  if(cur) lines.push(cur);
+  if(reduce){term.innerHTML=lines.join('<br>');return;}
+  let n=0; (function step(){term.innerHTML=lines.slice(0,++n).join('<br>')+(n<lines.length?'<br><span class="p">▍</span>':''); if(n<lines.length) typeTimer=setTimeout(step,260);})();
+}
+SERVICES.forEach((s,i)=>{const b=document.createElement('button');b.className='svc-tab';b.type='button';b.setAttribute('role','tab');b.style.left=POS[i][0]+'%';b.style.top=POS[i][1]+'%';b.innerHTML=`<span>${esc(s.k)}</span><span class="sub">${esc(s.sub)}</span>`;b.onclick=()=>showSvc(i);tabs.appendChild(b);});
+tabs.addEventListener('keydown',e=>{const cur=[...tabs.children].findIndex(b=>b.getAttribute('aria-selected')==='true');let n=null;if(e.key==='ArrowDown'||e.key==='ArrowRight')n=(cur+1)%SERVICES.length;if(e.key==='ArrowUp'||e.key==='ArrowLeft')n=(cur-1+SERVICES.length)%SERVICES.length;if(n!==null){e.preventDefault();showSvc(n);tabs.children[n].focus();}});
+showSvc(0);
+
+/* ---------- ROI calculator ---------- */
+const $=id=>document.getElementById(id);
+function roi(){
+  const t=+$('s-team').value,h=+$('s-hrs').value,r=+$('s-rate').value,p=+$('s-pct').value/100;
+  $('o-team').textContent=t; $('o-hrs').textContent=h; $('o-rate').textContent='$'+r; $('o-pct').textContent=Math.round(p*100)+'%';
+  const hours=t*h*48*p, dollars=hours*r;
+  $('r-dollars').textContent='$'+Math.round(dollars).toLocaleString();
+  $('r-hours').textContent=Math.round(hours).toLocaleString();
+  $('r-fte').textContent=(hours/1920).toFixed(1);
+  $('r-bar').style.width=Math.min(100,dollars/2000000*100)+'%';
+}
+['s-team','s-hrs','s-rate','s-pct'].forEach(id=>$(id).addEventListener('input',roi)); roi();
+
+/* ---------- Hero tabs ---------- */
+const tAsk=$('tab-ask'), tStack=$('tab-stack');
+function heroTab(which){const a=which==='ask';tAsk.setAttribute('aria-selected',a);tStack.setAttribute('aria-selected',!a);tAsk.tabIndex=a?0:-1;tStack.tabIndex=a?-1:0;$('pane-ask').hidden=!a;$('pane-stack').hidden=a;}
+tAsk.onclick=()=>heroTab('ask'); tStack.onclick=()=>heroTab('stack');
+[tStack,tAsk].forEach(t=>t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const to=t===tStack?'ask':'stack';heroTab(to);(to==='ask'?tAsk:tStack).focus();}}));
+
+/* ---------- AI stack builder ---------- */
+const PRODS=['OmniAI','Smart Infrastructure','OmniLaunch','OmniSec','ThinkLayer'];
+const FIRST={'OmniAI':'Deploy one AI agent on your highest-volume workflow.','Smart Infrastructure':'Stabilize architecture, CI/CD and autoscaling.','OmniLaunch':'Prototype and ship your MVP or platform.','OmniSec':'Run a security baseline and close the critical gaps.','ThinkLayer':'Connect your data into one live KPI dashboard.'};
+const SQ=[
+ {q:'What best describes you?',o:[['Startup scaling fast',{1:2,2:2,3:1}],['Established business',{0:2,4:2,1:1}],['Founder-led company',{0:2,4:1,2:1}],['Creator or solopreneur',{2:3,0:1}],['Tech-first product company',{0:3,3:1,1:1}]]},
+ {q:'What hurts most right now?',o:[['Too much manual work',{0:3,4:1}],['Customers wait too long',{0:3}],["Can't see what's working",{4:3,0:1}],["Systems won't scale",{1:3,3:1}],['Security and compliance worries',{3:3,1:1}],['We need to launch a product',{2:3}]]},
+ {q:'Where does your data live today?',o:[['Scattered in spreadsheets and inboxes',{4:2,1:1}],['In a CRM or database',{0:2,4:1}],['Centralized in a warehouse or dashboards',{0:2,4:1}]]}
+];
+const DATA_NOTE=['First step: get your data into one place so the AI has something reliable to learn from.','Your data is ready to connect an AI agent directly.','You are ready for predictive models and deeper automation.'];
+let sw={step:0,a:[]}, lastStack=null;
+function renderSW(){
+  const el=$('sw');
+  const prog=`<div class="sw-prog" aria-hidden="true">${[0,1,2,3].map(i=>`<i class="${i<=sw.step?'on':''}"></i>`).join('')}</div>`;
+  if(sw.step<SQ.length){
+    const q=SQ[sw.step];
+    el.innerHTML=`${prog}<div class="mono" style="font-size:12px;color:var(--dim)">STEP ${sw.step+1} OF 3</div><div class="sw-q">${esc(q.q)}</div><div class="sw-opts">${q.o.map((o,i)=>`<button type="button" class="chip" data-i="${i}">${esc(o[0])}</button>`).join('')}</div>${sw.step?'<button type="button" class="copy" id="sw-back" style="align-self:flex-start">← Back</button>':''}`;
+    el.querySelectorAll('.sw-opts .chip').forEach(b=>b.onclick=()=>{sw.a[sw.step]=+b.dataset.i;sw.step++;renderSW();});
+    const bk=$('sw-back'); if(bk) bk.onclick=()=>{sw.step--;renderSW();};
+    return;
+  }
+  const sc=[0,0,0,0,0];
+  sw.a.forEach((ai,qi)=>{const w=SQ[qi].o[ai][1];for(const k in w) sc[k]+=w[k];});
+  const ranked=sc.map((v,i)=>({p:PRODS[i],v})).filter(x=>x.v>0).sort((a,b)=>b.v-a.v).slice(0,3);
+  const max=ranked[0].v;
+  lastStack={profile:SQ[0].o[sw.a[0]][0],pain:SQ[1].o[sw.a[1]][0],data:SQ[2].o[sw.a[2]][0],stack:ranked.map(r=>r.p)};
+  el.innerHTML=`${prog}<div class="mono" style="font-size:12px;color:var(--signal)">YOUR RECOMMENDED STACK</div>
+  <div style="display:flex;flex-direction:column;gap:10px">${ranked.map(r=>`<div class="score"><span>${esc(r.p)}</span><div class="t"><span style="width:0%" data-w="${Math.round(r.v/max*100)}"></span></div></div>`).join('')}</div>
+  <div class="phase"><span class="n">01</span><span>${esc(FIRST[ranked[0].p])}</span>${ranked[1]?`<span class="n">02</span><span>${esc(FIRST[ranked[1].p])}</span>`:''}<span class="n">0${ranked[1]?3:2}</span><span>Measure, retrain and improve every month.</span></div>
+  <p style="font-size:14px;color:var(--muted)">${esc(DATA_NOTE[sw.a[2]])}</p>
+  <p id="sw-ai" style="font-size:14.5px;color:#C5CEDF" hidden></p>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><a class="btn btn-primary" href="#contact" style="min-height:42px;padding:0 18px">Turn this into a brief</a>${sample?'<button type="button" class="btn btn-ghost" id="sw-explain" style="min-height:42px;padding:0 18px">Explain it with AI</button>':''}<button type="button" class="copy" id="sw-reset">Start over</button></div>`;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>el.querySelectorAll('.score .t span').forEach(x=>x.style.width=x.dataset.w+'%')));
+  $('sw-reset').onclick=()=>{sw={step:0,a:[]};renderSW();};
+  const ex=$('sw-explain'); if(ex) ex.onclick=explainStack;
+}
+async function explainStack(){
+  const out=$('sw-ai'), b=$('sw-explain'); if(!sample||!lastStack) return;
+  b.disabled=true; out.hidden=false; out.textContent='Thinking…';
+  try{
+    await sample(`${RULES}\n\nA visitor used the AI stack builder. Profile: ${lastStack.profile}. Biggest pain: ${lastStack.pain}. Data: ${lastStack.data}. Recommended stack, in order: ${lastStack.stack.join(', ')}. In 3 short sentences, explain why this stack fits them and what we would tackle first. Plain text.`,{modelTier:'quick',onText:({text})=>{out.textContent=text;}});
+  }catch(e){ out.textContent=(e&&e.text)||errCopy(e&&e.code); }
+  finally{ b.disabled=false; }
+}
+renderSW();
+
+/* ---------- Workflow demo ---------- */
+const STAGES=['Ingest','Understand','Decide','Act','Learn'];
+const POWER=['Smart Infrastructure','OmniAI','OmniAI','ThinkLayer','ThinkLayer'];
+const SCEN={
+ 'Support ticket':[
+  ['A customer email arrives in the support inbox.','from: maria@example.com\nsubject: "Charged twice for order #4471"\nchannel: email'],
+  ['AI reads the message, classifies intent and urgency, and pulls the order history.','intent: billing_dispute\nurgency: high\nsentiment: frustrated\norder #4471: 2 charges found'],
+  ['A policy check confirms duplicate charges under $500 can be refunded without a manager.','rule: auto_refund if amount <= $500\nresult: approved'],
+  ['Refund issued, apology sent, ticket closed and CRM updated.','refund: issued\nreply: sent\nticket: resolved\ncrm: updated'],
+  ['The outcome is logged. A repeat pattern alerts engineering to a payment bug.','pattern: 3rd duplicate charge this week\naction: engineering alert opened']],
+ 'Sales lead':[
+  ['A visitor submits the website form.','name: J. Patel\ncompany: 40-person logistics firm\nnote: "drowning in manual dispatch"'],
+  ['AI enriches the lead and maps the need to a product.','industry: logistics\nsize: 40\nneed: workflow automation\nmatch: OmniAI'],
+  ['It scores fit and picks the next best action.','fit: strong\nnext action: book discovery call'],
+  ['A personalized reply goes out, the call is booked and the CRM record is created.','email: sent\ncall: booked\ncrm: opportunity created'],
+  ['Win and loss results feed back into scoring, so the next lead is ranked better.','scoring model: weights updated']],
+ 'Vendor invoice':[
+  ['A vendor invoice PDF lands in the accounts payable inbox.','file: invoice_8812.pdf\nvendor: Midwest Supply'],
+  ['AI extracts every line item and matches it to the purchase order.','PO: 3390\nlines: 14\nmatched: 13\nmismatch: 1 (quantity)'],
+  ['The mismatch is over tolerance, so it routes to a person instead of paying.','variance: qty 40 billed vs 36 received\nroute: human review'],
+  ['The approver gets a one-click summary and matched lines are scheduled for payment.','review: sent to approver\npayment: scheduled (13 lines)'],
+  ['Vendor accuracy is tracked. Repeat issues trigger a supplier conversation.','vendor score: updated']]
+};
+const fs=$('flow-stages'), fd=$('flow-detail'), fp=$('flow-play'), fsc=$('flow-sc');
+let fl={sc:'Support ticket',i:0,play:!reduce,timer:null,visible:false};
+STAGES.forEach((n,i)=>{const li=document.createElement('li');li.innerHTML=`<button type="button" class="flow-stage"><span class="n">0${i+1}</span><b>${n}</b><span class="pw">${esc(POWER[i])}</span><span class="bar2"><span></span></span></button>`;li.firstElementChild.onclick=()=>{fl.i=i;setPlay(false);flowUpdate();};fs.appendChild(li);});
+Object.keys(SCEN).forEach(k=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=k;b.setAttribute('aria-pressed',k===fl.sc);b.onclick=()=>{fl.sc=k;fl.i=0;[...fsc.children].forEach(c=>c.setAttribute('aria-pressed',c.textContent===k));flowUpdate();tick();};fsc.appendChild(b);});
+function flowUpdate(){
+  [...fs.children].forEach((li,j)=>{const b=li.firstElementChild;b.classList.toggle('done',j<fl.i);b.classList.toggle('cur',j===fl.i);if(j===fl.i)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');const sp=b.querySelector('.bar2 span');sp.style.animation='none';void sp.offsetWidth;sp.style.animation='';});
+  const st=SCEN[fl.sc][fl.i];
+  fd.innerHTML=`<div><div class="eyebrow">Stage 0${fl.i+1} · ${STAGES[fl.i]} · ${esc(POWER[fl.i])}</div><p style="font-size:20px;line-height:1.45;margin-top:12px">${esc(st[0])}</p></div><div class="payload">${esc(st[1])}</div>`;
+  fs.classList.toggle('paused',!fl.play);
+}
+function tick(){clearTimeout(fl.timer); if(!fl.play||!fl.visible) return; fl.timer=setTimeout(()=>{fl.i=(fl.i+1)%STAGES.length;flowUpdate();tick();},2800);}
+function setPlay(p){fl.play=p;fp.textContent=p?'Pause':'Play';fs.classList.toggle('paused',!p);if(p)flowUpdate();tick();}
+fp.onclick=()=>setPlay(!fl.play);
+new IntersectionObserver(es=>{fl.visible=es[0].isIntersecting;tick();}).observe(fs);
+flowUpdate(); if(reduce) setPlay(false);
+
+/* ---------- Guided intake ---------- */
+const IQ=[
+ {id:'goal',q:'What are you trying to automate or build?',o:['Customer support','Sales and lead follow-up','Operations and back office','A new product or MVP','Reporting and forecasting','Security and compliance'],other:true},
+ {id:'sys',q:'What systems do you use now? Pick all that apply.',o:['Google Workspace','Microsoft 365','Salesforce','HubSpot','QuickBooks','Shopify','Custom software','Mostly spreadsheets'],multi:true},
+ {id:'out',q:'What outcome matters most?',o:['Save time','Grow revenue','Better customer experience','See the numbers clearly','Reduce risk']},
+ {id:'who',q:'Where should we send your project brief?',form:true}
+];
+const GOAL2P={'Customer support':'OmniAI','Sales and lead follow-up':'OmniAI','Operations and back office':'OmniAI','A new product or MVP':'OmniLaunch','Reporting and forecasting':'ThinkLayer','Security and compliance':'OmniSec'};
+let ins={step:0,ans:{}};
+const ilog=$('in-log'), ictl=$('in-ctl');
+function iBubble(cls,t){const d=document.createElement('div');d.className='msg '+cls;d.textContent=t;ilog.appendChild(d);return d;}
+function iAsk(){
+  const q=IQ[ins.step]; $('in-step').textContent=`${ins.step+1} / ${IQ.length}`;
+  iBubble('bot',q.q);
+  if(q.form){
+    ictl.innerHTML=`<form id="in-form" style="display:flex;flex-direction:column;gap:12px"><div class="row2"><div class="field"><label for="in-name">Name</label><input id="in-name" type="text" required placeholder="Jane Smith"></div><div class="field"><label for="in-email">Email</label><input id="in-email" type="email" required placeholder="jane@company.com"></div></div><div class="field"><label for="in-co">Company</label><input id="in-co" type="text" placeholder="Company name"></div><button class="btn btn-primary" type="submit">Create my project brief →</button></form>`;
+    $('in-form').onsubmit=e=>{e.preventDefault();const a=ins.ans;a.name=$('in-name').value.trim();a.email=$('in-email').value.trim();a.co=$('in-co').value.trim();iBubble('me',`${a.name}${a.co?' · '+a.co:''}\n${a.email}`);iFinish();};
+    return;
+  }
+  const sel=new Set();
+  ictl.innerHTML=`<div class="chips">${q.o.map(o=>`<button type="button" class="chip" aria-pressed="false">${esc(o)}</button>`).join('')}</div>${q.other?`<form id="in-other" style="display:flex;gap:8px"><label for="in-other-t" style="position:absolute;left:-9999px">Something else</label><input id="in-other-t" type="text" placeholder="Something else? Type it here" style="flex:1;min-width:0;min-height:46px;background:var(--ink);border:1px solid var(--line-2);border-radius:10px;padding:0 14px"><button class="btn btn-ghost" type="submit" style="min-height:46px;padding:0 16px">Next</button></form>`:''}${q.multi?'<button type="button" class="btn btn-primary" id="in-next" style="align-self:flex-start;min-height:42px;padding:0 18px" disabled>Continue</button>':''}`;
+  ictl.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+    if(q.multi){const on=c.getAttribute('aria-pressed')!=='true';c.setAttribute('aria-pressed',on);if(on)sel.add(c.textContent);else sel.delete(c.textContent);$('in-next').disabled=!sel.size;}
+    else iAnswer(c.textContent);
+  });
+  if(q.multi) $('in-next').onclick=()=>iAnswer([...sel].join(', '));
+  if(q.other) $('in-other').onsubmit=e=>{e.preventDefault();const v=$('in-other-t').value.trim();if(v)iAnswer(v);};
+}
+function iAnswer(v){ins.ans[IQ[ins.step].id]=v;iBubble('me',v);ins.step++;iAsk();}
+async function iFinish(){
+  $('in-step').textContent='Brief ready';
+  const a=ins.ans, prod=GOAL2P[a.goal]||(lastStack?lastStack.stack[0]:'OmniAI');
+  const brief=`Project brief: ${a.name}${a.co?', '+a.co:''}\nGoal: ${a.goal}\nCurrent systems: ${a.sys}\nTop outcome: ${a.out}\nSuggested starting point: ${prod}${lastStack?'\nStack builder result: '+lastStack.stack.join(' → '):''}\nContact: ${a.email}`;
+  const card=document.createElement('div'); card.className='brief';
+  card.innerHTML=`<span class="k">Your project brief</span><div style="white-space:pre-wrap">${esc(brief)}</div><div id="in-ai" style="color:#C5CEDF" hidden></div>`;
+  ilog.appendChild(card);
+  ictl.innerHTML=`<p style="font-size:15px">To send it, copy the brief and email it to <b class="mono" style="user-select:all">omnithynk@gmail.com</b> or call <b class="mono" style="user-select:all">+1 (513) 497-0420</b>. We reply within one business day.</p><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><button type="button" class="btn btn-primary" id="in-copy" style="min-height:42px;padding:0 18px">Copy brief</button><button type="button" class="copy" id="in-reset">Start over</button></div>`;
+  $('in-copy').onclick=()=>{const ai=$('in-ai');const t=brief+(ai.hidden?'':'\n\nSummary: '+ai.textContent);navigator.clipboard.writeText(t).then(()=>{$('in-copy').textContent='Copied';}).catch(()=>{const r=document.createRange();r.selectNodeContents(card);const g=window.getSelection();g.removeAllRanges();g.addRange(r);$('in-copy').textContent='Selected. Press Ctrl+C';});};
+  $('in-reset').onclick=()=>{ins={step:0,ans:{}};ilog.innerHTML='';iAsk();};
+  if(sample){
+    const ai=$('in-ai'); ai.hidden=false; ai.textContent='Drafting a summary…';
+    try{ await sample(`${RULES}\n\nWrite a 3-sentence project summary an OmniThynk engineer could act on, based on this intake. Plain text, no greeting.\n\n${brief}`,{modelTier:'quick',onText:({text})=>{ai.textContent=text;}}); }
+    catch(e){ if(e&&e.text) ai.textContent=e.text; else ai.hidden=true; }
+  }
+}
+iAsk();
+
+/* ---------- Card spotlight ---------- */
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.lab');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');},{passive:true});
+
+/* ---------- Who it's for ---------- */
+const WHO=[
+ {k:'Startups scaling fast',s:'Product-market fit, now growth',pitch:'You have traction. Now the stack has to hold up while you grow.',stack:['OmniLaunch','Smart Infrastructure','OmniSec'],first:'An architecture review and scaling roadmap, then CI/CD and security baselines so your team can ship daily with confidence.'},
+ {k:'Established businesses',s:'Ready for digital transformation',pitch:'Your systems work, but they were not built for an AI-driven market.',stack:['OmniAI','ThinkLayer','Smart Infrastructure'],first:'Map the workflows that cost the most time, automate one of them end to end, and measure the result before expanding.'},
+ {k:'Founders',s:'Automate the business, focus on vision',pitch:'You want the business running itself so you can spend time on what only you can do.',stack:['OmniAI','ThinkLayer'],first:'An AI agent on your busiest inbox or pipeline, plus one dashboard with the numbers you actually check.'},
+ {k:'Creators, educators & solopreneurs',s:'Done with low-grade tech',pitch:'You have outgrown patched-together plugins and platforms you do not own.',stack:['OmniLaunch','OmniAI'],first:'A fast platform you own, with AI that answers your audience and handles sign-ups and payments.'},
+ {k:'Tech-first companies',s:'Real intelligence, not flashy features',pitch:'You want AI inside your product, not a chatbot bolted onto the side.',stack:['OmniAI','OmniSec','ThinkLayer'],first:'Tuned models embedded in your product with evaluation, security review and monitoring from day one.'}
+];
+const wl=$('who-list'), wo=$('who-out');
+function showWho(i){
+  [...wl.children].forEach((b,j)=>b.setAttribute('aria-pressed',j===i));
+  const w=WHO[i];
+  wo.innerHTML=`<div class="eyebrow">Your starting stack</div><div class="stack">${w.stack.map(x=>`<span>${esc(x)}</span>`).join('')}</div><h3>${esc(w.pitch)}</h3><div><div class="eyebrow" style="margin-bottom:8px">Where we'd start</div><p style="color:#C5CEDF">${esc(w.first)}</p></div><a class="btn btn-primary" href="#contact" style="align-self:flex-start">Talk about this plan</a>`;
+}
+WHO.forEach((w,i)=>{const b=document.createElement('button');b.type='button';b.className='who-btn';b.innerHTML=`<div><b>${esc(w.k)}</b><span>${esc(w.s)}</span></div>`;b.onclick=()=>showWho(i);wl.appendChild(b);});
+showWho(0);
+
+/* ---------- Copy buttons ---------- */
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+  const v=b.dataset.copy;
+  navigator.clipboard.writeText(v).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500);}).catch(()=>{const s=window.getSelection(),r=document.createRange();r.selectNodeContents(b.previousElementSibling.querySelector('.v'));s.removeAllRanges();s.addRange(r);b.textContent='Selected';});
+}));
+
+/* ---------- Website concept preview ---------- */
+const EXAMPLE={name:'Buckeye Comfort Co.',domain:'buckeyecomfort.com',tagline:'Columbus heating and cooling, done right the first time.',hero:'Same-day HVAC service from a family that answers its own phone.',cta:'Book a service call',sections:[{title:'Repairs & installs',desc:'Furnaces, AC and heat pumps, with upfront pricing.'},{title:'Comfort Club',desc:'Twice-yearly tune-ups and priority scheduling.'},{title:'Financing',desc:'Monthly plans for new systems, approved in minutes.'},{title:'Neighbor reviews',desc:'Real stories from homeowners across Central Ohio.'}],ai:['AI booking assistant that schedules calls 24/7','Instant repair-vs-replace estimator','Automatic maintenance reminders by text'],palette:{bg:'#F6F3EC',surface:'#FFFFFF',text:'#1B2330',accent:'#C2410C'}};
+const hex=v=>/^#[0-9a-fA-F]{6}$/.test(v||'');
+function lum(h){const n=parseInt(h.slice(1),16),c=[n>>16,(n>>8)&255,n&255].map(v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*c[0]+.7152*c[1]+.0722*c[2];}
+function onColor(h){return lum(h)>.4?'#111111':'#FFFFFF';}
+function renderSite(c){
+  const p=c.palette||{}; const bg=hex(p.bg)?p.bg:'#F6F3EC',su=hex(p.surface)?p.surface:'#FFFFFF',tx=hex(p.text)?p.text:'#1B2330',ac=hex(p.accent)?p.accent:'#2563EB';
+  const site=$('p-site'); site.style.background=bg; site.style.color=tx;
+  const secs=(Array.isArray(c.sections)?c.sections:[]).slice(0,4);
+  const ai=(Array.isArray(c.ai)?c.ai:[]).slice(0,3);
+  site.innerHTML=`<div class="site-nav"><b>${esc(c.name||'Your Company')}</b><div><span>Services</span><span>About</span><span>Contact</span></div></div>
+  <div class="site-hero"><h4>${esc(c.hero||c.tagline||'')}</h4><p>${esc(c.tagline||'')}</p><span class="cta" style="background:${ac};color:${onColor(ac)}">${esc(c.cta||'Get started')}</span></div>
+  <div class="site-secs">${secs.map(s=>`<div class="site-sec" style="background:${su};border:1px solid ${tx}1A"><b>${esc(s.title||'')}</b>${esc(s.desc||'')}</div>`).join('')}</div>
+  ${ai.length?`<div class="site-ai" style="border:1px dashed ${ac};"><b style="color:${ac}">Built-in AI</b><ul>${ai.map(a=>`<li>${esc(a)}</li>`).join('')}</ul></div>`:''}`;
+  $('p-url').textContent='https://www.'+String(c.domain||'yourcompany.com').replace(/^https?:\/\//,'').replace(/^www\./,'');
+  $('p-sw').innerHTML='Palette '+[bg,su,tx,ac].map(h=>`<i style="background:${h}" title="${h}"></i>`).join('')+`<span style="margin-left:auto">${esc([bg,ac].join(' · '))}</span>`;
+}
+renderSite(EXAMPLE);
+
+/* ---------- AI: sample capability ---------- */
+const RULES=`You are the AI concierge on the website of OmniThynk LLC. Tagline: Built to Think. Trained to Evolve.
+Mission: build intelligent, adaptive solutions that help businesses and individuals outthink complexity, automate growth and evolve with confidence in an AI-driven world.
+Products and services:
+- OmniAI (custom AI systems): LLM tuning and training for businesses; automation of customer support, sales and operations; AI embedded in apps, platforms and products.
+- Smart Infrastructure & DevOps: scalable backend architecture; cloud-native deployments on AWS, Azure and GCP; CI/CD automation for fast-moving teams.
+- OmniLaunch (startup acceleration): full-stack web and app development; MVP design and build with lean methodology; no-code and low-code integration strategy.
+- OmniSec (business-grade cybersecurity): digital trust frameworks for eCommerce, fintech and SaaS; real-time threat detection; data privacy compliance; security by design from day one.
+- ThinkLayer (AI-enhanced business platforms): KPI dashboards and forecasting; predictive analytics; smart workflows for lead nurturing, retention and conversion.
+- OmniThynk Labs (opening soon): a place for small businesses and creators to experiment with AI. Join the waitlist through the contact form.
+Engagements: AI Opportunity Sprint, OmniLaunch Build, monthly Infrastructure Support subscription.
+Ideal clients: startups scaling fast; established businesses needing digital transformation; founders who want to automate and focus on vision; creators, educators and solopreneurs tired of low-grade tech; tech-first companies that want real intelligence.
+Values: Mastery, Clarity, Agility, Empowerment, Truth (no hype, no buzzwords, real results or nothing).
+Process: Discover, Design (clickable prototype), Deploy, Evolve.
+Founder and CEO: Dr. Devin Faggs, DBA in Strategy and Innovation, two decades leading technology and R&D programs (National Science Foundation, DOE/NNSA, Battelle/PNNL), U.S. Air Force veteran. CTO: Tim Jones.
+Contact: omnithynk@gmail.com, +1 (513) 497-0420.
+Rules: Answer in 2 to 5 short sentences, plain text, no markdown. Match the brand voice: clear, confident, no hype or buzzwords. Name the specific product that fits the question. Never invent prices, guaranteed timelines, client names or statistics; for cost or timeline say it depends on scope and suggest a discovery call. If asked something unrelated, answer briefly and steer back. End with a next step when natural.`;
+let turns=[], busy=false, ctl=null;
+const log=$('c-log'), cForm=$('c-form'), cIn=$('c-input'), cSend=$('c-send');
+function bubble(cls,txt){const d=document.createElement('div');d.className='msg '+cls;d.textContent=txt;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
+function errCopy(code){return ({rate_limited:'Too many questions at once. Try again in a minute.',session_expired:'Please sign in again to keep chatting.',refused:'I can\'t help with that one. Try asking about our services.',empty_completion:'I didn\'t get an answer. Try rephrasing.'})[code]||'Something went wrong on my end. Try again, or email omnithynk@gmail.com.';}
+function disableAI(msg){
+  $('c-state').textContent='Offline'; $('c-state').style.color='var(--dim)';
+  $('c-note').textContent=msg; cIn.disabled=true; cSend.disabled=true;
+  document.querySelectorAll('#c-sugg .chip').forEach(c=>c.disabled=true);
+  $('b-go').disabled=true; $('b-status').textContent='Live AI generation is coming soon. Here is an example concept.';
+}
+async function ask(q){
+  if(!sample||busy||!q.trim()) return;
+  busy=true; cSend.disabled=true; $('c-sugg').hidden=true;
+  bubble('me',q); turns.push({role:'user',content:q}); if(turns.length>12) turns=turns.slice(-12); while(turns.length&&turns[0].role!=='user') turns.shift();
+  const out=bubble('bot thinking','Thinking…');
+  ctl=new AbortController();
+  try{
+    const {text}=await sample([{role:'user',content:RULES},...turns],{cache:false,modelTier:'quick',signal:ctl.signal,onText:({text})=>{out.classList.remove('thinking');out.textContent=text;log.scrollTop=log.scrollHeight;}});
+    out.classList.remove('thinking'); out.textContent=text; turns.push({role:'assistant',content:text});
+  }catch(e){
+    turns.pop();
+    if(e&&(e.code==='not_granted'||e.code==='sampling_disabled'||e.code==='not_declared'||e.code==='capability_disabled'||e.code==='capability_removed')){out.remove();disableAI('Live AI is turned off for this view.');}
+    else {out.classList.remove('thinking'); out.textContent=(e&&e.text)?e.text:errCopy(e&&e.code);}
+  }finally{busy=false; if(!cIn.disabled) cSend.disabled=false;}
+}
+cForm.addEventListener('submit',e=>{e.preventDefault();const q=cIn.value;cIn.value='';ask(q);});
+document.querySelectorAll('#c-sugg .chip').forEach(c=>c.addEventListener('click',()=>ask(c.textContent)));
+
+$('b-form').addEventListener('submit',async e=>{
+  e.preventDefault(); if(!sample) return;
+  const st=$('b-status'), go=$('b-go'); go.disabled=true; st.className='status'; st.textContent='Generating your concept…';
+  $('p-site').style.opacity='.45';
+  const prompt=`Create a website concept for this business.
+Business: ${$('b-biz').value.slice(0,300)}
+Goal: ${$('b-goal').value.slice(0,500)}
+Desired feel: ${$('b-vibe').value}
+Reply with only one JSON object of this shape:
+{"name":"brand name (use the real business name if given, else invent a fitting one)","domain":"plausible domain","tagline":"one sentence","hero":"headline under 12 words","cta":"button label under 4 words","sections":[{"title":"2-4 words","desc":"under 14 words"}] (exactly 4),"ai":["AI feature under 12 words"] (exactly 3, specific to this business),"palette":{"bg":"#RRGGBB","surface":"#RRGGBB","text":"#RRGGBB","accent":"#RRGGBB"}}
+The palette must suit the feel and have readable contrast between text and bg.`;
+  try{
+    const c=await sample.json(prompt,{modelTier:'quick'});
+    if(!c||typeof c!=='object'||!c.name) throw {code:'invalid_json'};
+    renderSite(c); st.textContent='Concept generated. Change anything and generate again.';
+  }catch(err){
+    st.className='status err';
+    if(err&&(err.code==='not_granted'||err.code==='sampling_disabled')){disableAI('Live AI is turned off for this view.');}
+    else st.textContent=err&&err.code==='invalid_json'?'The draft came back incomplete. Try again.':errCopy(err&&err.code);
+  }finally{$('p-site').style.opacity='1'; if(sample&&!cIn.disabled) go.disabled=false;}
+});
+
+(async()=>{
+  try{ sample = window.claude ? await window.claude.use('sample') : null; }catch(_){ sample=null; }
+  if(!sample) disableAI('The live AI concierge is coming soon. Try the stack builder, or email omnithynk@gmail.com.');
+})();
+})();
+</script>
+
+</body>
+</html>
