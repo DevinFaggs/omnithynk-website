@@ -51,7 +51,7 @@ module.exports = async function handler(req, res) {
 
   const site = `https://${req.headers['x-forwarded-host'] || req.headers.host || 'omnithynk-website.vercel.app'}`;
   const est = q.p_estimate || {};
-  let emailed = false;
+  let emailed = false, emailNote = '';
   try {
     const r = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(to)}`, {
       method: 'POST',
@@ -69,9 +69,9 @@ module.exports = async function handler(req, res) {
     });
     const j = await r.json().catch(() => ({}));
     emailed = r.ok && String(j.success) === 'true';
-    if (!emailed) console.error('email_not_sent', r.status, JSON.stringify(j).slice(0, 200));
-  } catch (e) { console.error('email_error', e && e.message); }
+    if (!emailed) { emailNote = String(j.message || r.status).slice(0, 160); console.error('email_not_sent', r.status, JSON.stringify(j).slice(0, 200)); }
+  } catch (e) { emailNote = 'email_error'; console.error('email_error', e && e.message); }
   if (emailed) await sb('rpc/mark_quote_emailed', { p_id: id });
 
-  return res.status(200).json({ ok: true, id, emailed });
+  return res.status(200).json({ ok: true, id, emailed, email_note: emailNote || undefined });
 };
