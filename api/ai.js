@@ -111,7 +111,7 @@ module.exports = async function handler(req, res) {
     if (!r.ok) {
       const detail = (await r.text()).slice(0, 300);
       console.error('gateway_error', r.status, detail);
-      return res.status(502).json({ error: 'gateway_error', status: r.status, detail: detail.slice(0, 220) });
+      return res.status(502).json({ error: 'gateway_error', status: r.status });
     }
     const j = await r.json();
     const text = j?.choices?.[0]?.message?.content || '';

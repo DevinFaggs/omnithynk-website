@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OmniThynk Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Geist:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  .ad{max-width:1100px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-left,0px)) 80px}
+  .ad-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 0 24px;border-bottom:1px solid var(--line)}
+  .ad-top img{height:32px;width:auto;display:block}
+  .ad-who{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
+  .card{padding:28px;border-radius:24px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .login{max-width:460px;margin:80px auto;display:flex;flex-direction:column;gap:16px}
+  .login h1{font-size:34px}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:24px 0}
+  .ad input,.ad select,.ad textarea{background:rgba(5,8,22,.6);border:1px solid var(--line-2);border-radius:12px;padding:0 14px;min-height:46px;font-size:15px;color:var(--text);width:100%}
+  .ad textarea{padding:12px 14px;min-height:80px;resize:vertical}
+  .ad input:focus,.ad select:focus,.ad textarea:focus{outline:0;border-color:#A78BFA}
+  .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  @media (max-width:640px){.grid2{grid-template-columns:minmax(0,1fr)}}
+  .stack{display:flex;flex-direction:column;gap:16px}
+  .q{display:flex;flex-direction:column;gap:12px}
+  .q-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
+  .q-head h3{font-size:22px}
+  .q-head small{display:block;color:var(--muted);font-size:13px}
+  .q dl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:6px 14px;margin:0;font-size:14.5px}
+  .q dt{color:var(--muted)}
+  .q dd{margin:0;overflow-wrap:anywhere;white-space:pre-wrap}
+  .q a{color:#C4CCFF}
+  .badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;background:rgba(255,255,255,.08)}
+  .badge.new{background:rgba(91,140,255,.25);color:#C7D6FF}
+  .badge.ok{background:rgba(52,229,216,.18);color:#7BF1E5}
+  .badge.warn{background:rgba(255,180,92,.18);color:#FFCF97}
+  .row-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  table.t{width:100%;border-collapse:collapse;font-size:14.5px}
+  table.t th{text-align:left;color:var(--muted);font-weight:600;font-size:13px;padding:6px 8px}
+  table.t td{padding:6px 8px;vertical-align:top}
+  .tbl{overflow-x:auto}
+  .msg-ok{color:var(--signal)} .msg-err{color:#FFB45C}
+  .empty{color:var(--muted);padding:30px;text-align:center}
+  .help{font-size:13.5px;color:var(--muted)}
+  .admin-list li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .admin-list{list-style:none;margin:0;padding:0}
+  .btn-danger{background:transparent;border:1px solid rgba(255,107,107,.5);color:#FF9B9B}
+</style>
+</head>
+<body>
+<div class="ad">
+  <header class="ad-top"><a href="/" aria-label="View the website"><img src="/logo.png" alt="OmniThynk" width="132" height="32"></a><div class="ad-who" id="who" hidden><span id="who-email"></span><button class="btn btn-ghost btn-sm" id="signout" type="button">Sign out</button></div></header>
+
+  <section id="v-login" class="card login" hidden>
+    <span class="eyebrow">Admin</span>
+    <h1>Sign in to manage your website</h1>
+    <p class="help">Enter your admin email. We'll send you a one-time sign-in link. No password needed.</p>
+    <form id="login-form" class="stack">
+      <div class="field"><label for="l-email">Email</label><input id="l-email" type="email" autocomplete="email" required></div>
+      <button class="btn btn-primary" type="submit" id="l-go">Email me a sign-in link</button>
+      <p class="status" id="l-status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section id="v-denied" class="card login" hidden>
+    <h1>This email isn't an admin yet</h1>
+    <p class="help">Ask an existing admin to add <b id="denied-email"></b> on the Admins tab, then sign in again.</p>
+    <button class="btn btn-ghost" type="button" id="denied-out">Use a different email</button>
+  </section>
+
+  <section id="v-app" hidden>
+    <div class="tabs" role="tablist">
+      <button class="seg-b" role="tab" data-tab="quotes" aria-pressed="true">Quote requests</button>
+      <button class="seg-b" role="tab" data-tab="contact" aria-pressed="false">Contact &amp; email</button>
+      <button class="seg-b" role="tab" data-tab="pricing" aria-pressed="false">Pricing &amp; timelines</button>
+      <button class="seg-b" role="tab" data-tab="admins" aria-pressed="false">Admins</button>
+    </div>
+
+    <div id="t-quotes" class="stack">
+      <div class="row-actions">
+        <div class="chips" id="q-filter"></div>
+        <button class="btn btn-ghost btn-sm" type="button" id="q-refresh">Refresh</button>
+        <button class="btn btn-ghost btn-sm" type="button" id="q-csv">Download CSV</button>
+      </div>
+      <div id="q-list" class="stack"><p class="empty">Loading…</p></div>
+    </div>
+
+    <form id="t-contact" class="card stack" hidden>
+      <h2 class="h2" style="font-size:30px;margin:0">Contact &amp; email</h2>
+      <div class="field"><label for="s-quote">Send quote requests to</label><input id="s-quote" type="email" required><p class="help">After changing this, the first request sent to the new address includes a one-time "Activate" email from FormSubmit. Click it once and requests flow normally.</p></div>
+      <div class="grid2">
+        <div class="field"><label for="s-display">Email shown on the website</label><input id="s-display" type="email"></div>
+        <div class="field"><label for="s-phone">Phone shown on the website</label><input id="s-phone" type="text"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label for="s-li">LinkedIn page link</label><input id="s-li" type="url" placeholder="https://linkedin.com/company/…"></div>
+        <div class="field"><label for="s-ig">Instagram link</label><input id="s-ig" type="url" placeholder="https://instagram.com/…"></div>
+      </div>
+      <div class="field"><label for="s-fb">Facebook link</label><input id="s-fb" type="url" placeholder="https://facebook.com/…"></div>
+      <p class="help">Leave a social link blank to hide it on the website.</p>
+      <div class="row-actions"><button class="btn btn-primary" type="submit">Save changes</button><span id="c-msg" aria-live="polite"></span></div>
+    </form>
+
+    <form id="t-pricing" class="card stack" hidden>
+      <h2 class="h2" style="font-size:30px;margin:0">Pricing &amp; timelines</h2>
+      <p class="help">These feed the "Plan your project" estimator and the quote form. Leave a price blank to show "Exact quote after a quick chat" instead of a number.</p>
+      <h3>Project types</h3>
+      <div class="tbl"><table class="t"><thead><tr><th>Project type</th><th>Typical timeline</th><th>Starting price (optional)</th></tr></thead><tbody id="p-types"></tbody></table></div>
+      <h3>Packages</h3>
+      <div class="tbl"><table class="t"><thead><tr><th>Package</th><th>Description</th><th>Starting price (optional)</th></tr></thead><tbody id="p-tiers"></tbody></table></div>
+      <div class="field"><label for="p-note">Note shown under every estimate</label><textarea id="p-note"></textarea></div>
+      <div class="row-actions"><button class="btn btn-primary" type="submit">Save changes</button><span id="p-msg" aria-live="polite"></span></div>
+    </form>
+
+    <div id="t-admins" class="card stack" hidden>
+      <h2 class="h2" style="font-size:30px;margin:0">Admins</h2>
+      <p class="help">People on this list can sign in here, see quote requests and change website settings.</p>
+      <ul class="admin-list" id="a-list"></ul>
+      <form id="a-form" class="row-actions"><label for="a-email" class="sr">New admin email</label><input id="a-email" type="email" placeholder="name@email.com" style="max-width:320px" required><button class="btn btn-primary btn-sm" type="submit">Add admin</button><span id="a-msg" aria-live="polite"></span></form>
+    </div>
+  </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"></script>
+<script src="/assets/admin.js"></script>
+</body>
+</html>

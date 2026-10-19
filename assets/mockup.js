@@ -120,14 +120,14 @@
     const R = F.r, ink = on(P.accent);
     const h = `font-family:${F.h};font-weight:${F.w};`;
     return `<div class="mk-site" style="background:${P.bg};color:${P.text};--r:${R}em">
-  <div class="mk-nav"><div class="mk-logo" style="${h}"><span style="background:${P.accent};color:${ink}">${icon(d.logoIcon, '1em', ink, 2)}</span>${esc(d.name)}</div>
+  <div class="mk-nav"><div class="mk-logo" style="${h}"><span style="background:${P.accent};color:${ink}">${icon(d.logoIcon, '1em', ink, 2)}</span><span data-edit="name">${esc(d.name)}</span></div>
     <div class="mk-links">${d.nav.map(n => `<span>${esc(n)}</span>`).join('')}</div>
     <span class="mk-btn" style="background:${P.accent};color:${ink}">${esc(d.hero.cta)}</span></div>
   <div class="mk-hero">
     <div class="mk-hero-copy">
-      <span class="mk-badge" style="background:${mix(P.accent, P.bg, .85)};color:${contrast(P.accent, P.bg) > 3 ? P.accent : P.text}">${icon('sparkle', '.9em', 'currentColor', 2)} ${esc(d.hero.badge)}</span>
-      <h3 style="${h}">${esc(d.hero.title)}</h3>
-      <p style="color:${P.muted}">${esc(d.hero.text)}</p>
+      <span class="mk-badge" style="background:${mix(P.accent, P.bg, .85)};color:${contrast(P.accent, P.bg) > 3 ? P.accent : P.text}">${icon('sparkle', '.9em', 'currentColor', 2)} <span data-edit="hero.badge">${esc(d.hero.badge)}</span></span>
+      <h3 style="${h}" data-edit="hero.title">${esc(d.hero.title)}</h3>
+      <p style="color:${P.muted}" data-edit="hero.text">${esc(d.hero.text)}</p>
       <div class="mk-row"><span class="mk-btn lg" style="background:${P.accent};color:${ink}">${esc(d.hero.cta)} ${icon('arrow', '1em', ink, 2)}</span><span class="mk-btn lg ghost" style="border-color:${P.line};color:${P.text}">${esc(d.nav[1])}</span></div>
     </div>
     <div class="mk-hero-art">
@@ -136,13 +136,13 @@
       <div class="mk-float b" style="background:${P.surface};color:${P.text}"><span style="color:${P.accent}">${icon('heart', '1.1em', P.accent, 2)}</span><small>${esc(d.features[0].title)}</small></div>
     </div>
   </div>
-  <div class="mk-sec"><div class="mk-sec-h"><h4 style="${h}">${esc(d.productsTitle)}</h4><span style="color:${P.accent}">View all ${icon('arrow', '1em', P.accent, 2)}</span></div>
+  <div class="mk-sec"><div class="mk-sec-h"><h4 style="${h}" data-edit="productsTitle">${esc(d.productsTitle)}</h4><span style="color:${P.accent}">View all ${icon('arrow', '1em', P.accent, 2)}</span></div>
     <div class="mk-grid">${d.products.map((p, i) => `<div class="mk-card" style="background:${P.surface};border-color:${P.line}">
       ${tile(P, i % 2 ? P.accent2 : P.accent, i % 2 ? P.accent : P.accent2, p.icon, '4.4em')}
-      <div class="mk-card-b"><b style="${h}">${esc(p.name)}</b><small style="color:${P.muted}">${esc(p.desc)}</small>
-      <div class="mk-row sb"><span class="mk-price">${esc(p.price)}</span><span class="mk-add" style="background:${P.accent};color:${ink}">${icon('plus', '1em', ink, 2.4)}</span></div></div></div>`).join('')}</div></div>
-  <div class="mk-feats" style="background:${mix(P.accent, P.bg, .9)}">${d.features.map(f => `<div><span class="mk-fi" style="background:${P.accent};color:${ink}">${icon(f.icon, '1.3em', ink, 2)}</span><b style="${h}">${esc(f.title)}</b><small style="color:${P.muted}">${esc(f.text)}</small></div>`).join('')}</div>
-  <div class="mk-cta" style="background:linear-gradient(120deg, ${P.accent}, ${mix(P.accent2, P.accent, .3)});color:${ink}"><div><h4 style="${h}">${esc(d.ctaBand.title)}</h4><p>${esc(d.about)}</p></div><span class="mk-btn lg" style="background:${ink};color:${P.accent}">${esc(d.ctaBand.button)}</span></div>
+      <div class="mk-card-b"><b style="${h}" data-edit="products.${i}.name">${esc(p.name)}</b><small style="color:${P.muted}" data-edit="products.${i}.desc">${esc(p.desc)}</small>
+      <div class="mk-row sb"><span class="mk-price" data-edit="products.${i}.price">${esc(p.price)}</span><span class="mk-add" style="background:${P.accent};color:${ink}">${icon('plus', '1em', ink, 2.4)}</span></div></div></div>`).join('')}</div></div>
+  <div class="mk-feats" style="background:${mix(P.accent, P.bg, .9)}">${d.features.map((f, i) => `<div><span class="mk-fi" style="background:${P.accent};color:${ink}">${icon(f.icon, '1.3em', ink, 2)}</span><b style="${h}" data-edit="features.${i}.title">${esc(f.title)}</b><small style="color:${P.muted}" data-edit="features.${i}.text">${esc(f.text)}</small></div>`).join('')}</div>
+  <div class="mk-cta" style="background:linear-gradient(120deg, ${P.accent}, ${mix(P.accent2, P.accent, .3)});color:${ink}"><div><h4 style="${h}" data-edit="ctaBand.title">${esc(d.ctaBand.title)}</h4><p data-edit="about">${esc(d.about)}</p></div><span class="mk-btn lg" style="background:${ink};color:${P.accent}">${esc(d.ctaBand.button)}</span></div>
   <div class="mk-foot" style="color:${P.muted}"><span style="${h}color:${P.text}">${esc(d.name)}</span><span>${d.nav.map(esc).join(' · ')}</span></div>
 </div>`;
   }
@@ -153,9 +153,9 @@
     screen = screen || 0;
     let body = '';
     if (screen === 0) {
-      body = `<div class="ap-top"><div><small style="color:${P.muted}">${esc(d.name)}</small><h5 style="${h}">${esc(A.greeting)}</h5></div><span class="ap-av" style="background:${P.accent};color:${ink}">${icon(d.logoIcon, '1.2em', ink, 2)}</span></div>
+      body = `<div class="ap-top"><div><small style="color:${P.muted}">${esc(d.name)}</small><h5 style="${h}" data-edit="app.greeting">${esc(A.greeting)}</h5></div><span class="ap-av" style="background:${P.accent};color:${ink}">${icon(d.logoIcon, '1.2em', ink, 2)}</span></div>
       <div class="ap-search" style="background:${P.surface};color:${P.muted};border-color:${P.line}">${icon('search', '1.1em', P.muted, 2)} Search</div>
-      <div class="ap-promo" style="background:linear-gradient(130deg, ${P.accent}, ${P.accent2});color:${ink}"><div><b style="${h}">${esc(A.promo.title)}</b><small>${esc(A.promo.text)}</small><span class="ap-pill" style="background:${ink};color:${P.accent}">${esc(A.promo.button)}</span></div>${icon(d.products[0].icon, '4.2em', ink, 1.2)}</div>
+      <div class="ap-promo" style="background:linear-gradient(130deg, ${P.accent}, ${P.accent2});color:${ink}"><div><b style="${h}" data-edit="app.promo.title">${esc(A.promo.title)}</b><small data-edit="app.promo.text">${esc(A.promo.text)}</small><span class="ap-pill" style="background:${ink};color:${P.accent}">${esc(A.promo.button)}</span></div>${icon(d.products[0].icon, '4.2em', ink, 1.2)}</div>
       <div class="ap-cats">${A.categories.map((c, i) => `<span style="${i === 0 ? `background:${P.text};color:${P.bg}` : `background:${P.surface};color:${P.text};border-color:${P.line}`}">${esc(c)}</span>`).join('')}</div>
       <div class="ap-h"><b style="${h}">${esc(A.listTitle)}</b><small style="color:${P.accent}">See all</small></div>
       <div class="ap-hscroll">${d.products.slice(0, 4).map((p, i) => `<div class="ap-pc" style="background:${P.surface};border-color:${P.line}">${tile(P, i % 2 ? P.accent2 : P.accent, i % 2 ? P.accent : P.accent2, p.icon, '3em')}<b>${esc(p.name)}</b><div class="mk-row sb"><small>${esc(p.price)}</small><span class="mk-add" style="background:${P.accent};color:${ink}">${icon('plus', '.9em', ink, 2.4)}</span></div></div>`).join('')}</div>`;

@@ -34,9 +34,9 @@
     <nav class="navlinks" aria-label="Main">
       <a href="#build" class="hide-sm">What we build</a>
       <a href="#demo" class="hide-sm">Try it live</a>
-      <a href="#how" class="hide-sm">How it works</a>
+      <a href="#plan" class="hide-sm">Plan &amp; pricing</a>
       <a href="#about" class="hide-sm">About</a>
-      <a href="#contact" class="btn btn-primary btn-sm mag">Tell us your idea</a>
+      <a href="#quote" class="btn btn-primary btn-sm mag">Get a quote</a>
     </nav>
   </div>
 </header>
@@ -53,10 +53,10 @@
       <p class="lede">Websites, mobile apps, online stores and smart AI helpers for everyday businesses and people with big ideas. No tech experience needed.</p>
       <form class="idea-box" id="hero-form" autocomplete="off">
         <label for="hero-idea" class="sr">Describe your idea</label>
-        <input id="hero-idea" type="text" placeholder="An online store for my cookie shop">
+        <input id="hero-idea" type="text" placeholder="An online store for my cookie shop"><button type="button" class="mic" data-mic="hero-idea" aria-label="Speak instead of typing" hidden><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
         <button class="btn btn-primary mag" type="submit">Show me <span aria-hidden="true">✦</span></button>
       </form>
-      <p class="hero-hint">Type your idea and watch our AI design a first draft in seconds.</p>
+      <p class="hero-hint">Type or say your idea and watch a first draft appear in seconds. Free, no sign-up.</p>
       <ul class="assure"><li>No tech knowledge needed</li><li>See it before it's built</li><li>Security built in</li></ul>
     </div>
     <div class="hero-stage" id="hero-stage" aria-label="Examples of websites and apps we build">
@@ -79,7 +79,7 @@
   <div class="wrap">
     <form class="idea-box wide" id="ideas-form" autocomplete="off">
       <label for="ideas-input" class="sr">Describe your own idea</label>
-      <input id="ideas-input" type="text" placeholder="Something else? Describe it in your own words…">
+      <input id="ideas-input" type="text" placeholder="Something else? Describe it in your own words…"><button type="button" class="mic" data-mic="ideas-input" aria-label="Speak instead of typing" hidden><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
       <button class="btn btn-primary mag" type="submit">Design it <span aria-hidden="true">✦</span></button>
     </form>
   </div>
@@ -110,17 +110,18 @@
           <button type="button" class="seg-b" data-kind="website" aria-pressed="true">Website</button>
           <button type="button" class="seg-b" data-kind="app" aria-pressed="false">Mobile app</button>
         </div>
-        <div class="field"><label for="d-biz">Your business or idea</label><input id="d-biz" type="text" placeholder="Cookie shop" maxlength="160"></div>
+        <div class="field"><label for="d-biz">Your business or idea</label><div class="inp-mic"><input id="d-biz" type="text" placeholder="Cookie shop" maxlength="160"><button type="button" class="mic" data-mic="d-biz" aria-label="Speak instead of typing" hidden><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button></div></div>
         <div class="field"><label for="d-goal">What should it do?</label><input id="d-goal" type="text" placeholder="Show our baked goods and take orders" maxlength="300"></div>
         <div class="field"><span class="lbl" id="feel-lbl">Feel</span>
           <div class="chips" id="d-feel" role="group" aria-labelledby="feel-lbl">
-            <button type="button" class="chip" aria-pressed="true" data-v="Warm and friendly">Warm</button>
+            <button type="button" class="chip" aria-pressed="true" data-v="">Auto</button>
+            <button type="button" class="chip" aria-pressed="false" data-v="Warm and friendly">Warm</button>
             <button type="button" class="chip" aria-pressed="false" data-v="Bold and modern">Bold</button>
             <button type="button" class="chip" aria-pressed="false" data-v="Elegant and premium">Elegant</button>
             <button type="button" class="chip" aria-pressed="false" data-v="Fun and playful">Playful</button>
             <button type="button" class="chip" aria-pressed="false" data-v="Clean and simple">Clean</button>
           </div></div>
-        <button class="btn btn-primary mag" type="submit" id="d-go">Design it with AI <span aria-hidden="true">✦</span></button>
+        <button class="btn btn-primary mag" type="submit" id="d-go">Design it <span aria-hidden="true">✦</span></button>
         <p class="status" id="d-status" aria-live="polite"></p>
         <div class="field"><span class="lbl">Or try an example</span>
           <div class="chips" id="d-presets"></div></div>
@@ -130,6 +131,17 @@
         <div class="dev-phone big" id="demo-phone" hidden><div class="notch"></div><div class="screen" id="demo-app"></div></div>
         <div class="gen" id="gen" hidden><div class="gen-orb"></div><p id="gen-step">Picking your colors…</p></div>
         <p class="demo-note" id="demo-note">Scroll inside the screen to explore the whole page.</p>
+        <div class="editor" id="editor" aria-label="Customize this design">
+          <div class="ed-row"><span class="ed-lbl">Colors</span><div class="swatches" id="ed-colors"></div></div>
+          <div class="ed-row"><span class="ed-lbl">Style</span><div class="chips" id="ed-style"></div></div>
+          <div class="ed-row">
+            <button type="button" class="chip" id="ed-text" aria-pressed="false">✎ Edit the words</button>
+            <button type="button" class="chip" id="ed-share">Share this design</button>
+            <button type="button" class="chip" id="ed-phone">Open on my phone</button>
+            <button type="button" class="btn btn-primary btn-sm mag" id="ed-quote">Get a quote for this</button>
+          </div>
+          <p class="fine" id="ed-hint" hidden>Click any text in the design to change it. Changes stay with your design when you share it or request a quote.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -176,24 +188,36 @@
   </div>
 </section>
 
-<!-- ROI -->
-<section class="band" id="roi">
-  <div class="wrap roi">
-    <div>
-      <div class="eyebrow">Time-savings calculator</div>
-      <h2 class="h2">How much time could an AI helper <span class="grad">give you back?</span></h2>
-      <div class="sliders">
-        <div><div class="sl-top"><label for="s-team">People doing repetitive work</label><output id="o-team" for="s-team">5</output></div><input id="s-team" type="range" min="1" max="100" value="5"></div>
-        <div><div class="sl-top"><label for="s-hrs">Hours each spends on it, per week</label><output id="o-hrs" for="s-hrs">8</output></div><input id="s-hrs" type="range" min="1" max="30" value="8"></div>
-        <div><div class="sl-top"><label for="s-rate">What an hour of their time costs you</label><output id="o-rate" for="s-rate">$30</output></div><input id="s-rate" type="range" min="15" max="150" step="5" value="30"></div>
+<!-- PLAN & PRICING -->
+<section class="band" id="plan">
+  <div class="wrap">
+    <div class="eyebrow">Plan your project</div>
+    <h2 class="h2">See your package and timeline <span class="grad">before you call.</span></h2>
+    <p class="lede">Pick what you need and we'll show the package that fits and a typical timeline. It's a planning guide, not a bill. Your exact quote comes after a short conversation.</p>
+    <div class="est">
+      <div class="est-form">
+        <div class="field"><span class="lbl" id="est-type-l">What do you want to build?</span><div class="type-grid" id="est-type" role="group" aria-labelledby="est-type-l"></div></div>
+        <div class="field"><span class="lbl" id="est-feat-l">What should it do? Pick any</span><div class="chips" id="est-feat" role="group" aria-labelledby="est-feat-l"></div></div>
+        <div class="row2">
+          <div class="field"><span class="lbl" id="est-size-l">How big?</span><div class="seg" id="est-size" role="group" aria-labelledby="est-size-l"></div></div>
+          <div class="field"><span class="lbl" id="est-when-l">When do you need it?</span><div class="seg" id="est-when" role="group" aria-labelledby="est-when-l"></div></div>
+        </div>
+      </div>
+      <div class="est-out" id="est-out" aria-live="polite"></div>
+    </div>
+
+    <div class="saver">
+      <div>
+        <span class="eyebrow">Already in business?</span>
+        <h3>See the time an AI helper could give your team back.</h3>
+        <p class="fine">This measures time your team spends on repetitive work today. It is not what we charge.</p>
+      </div>
+      <div class="saver-in">
+        <div><div class="sl-top"><label for="s-team">People doing repetitive work</label><output id="o-team" for="s-team">3</output></div><input id="s-team" type="range" min="1" max="50" value="3"></div>
+        <div><div class="sl-top"><label for="s-hrs">Hours each spends on it, per week</label><output id="o-hrs" for="s-hrs">6</output></div><input id="s-hrs" type="range" min="1" max="30" value="6"></div>
         <div><div class="sl-top"><label for="s-pct">How much an AI helper could handle</label><output id="o-pct" for="s-pct">40%</output></div><input id="s-pct" type="range" min="10" max="80" step="5" value="40"></div>
       </div>
-    </div>
-    <div class="result" aria-live="polite">
-      <span class="eyebrow">Estimated value per year</span>
-      <div class="big" id="r-dollars">$0</div>
-      <div class="kv"><div><span>Hours back</span><b id="r-hours">0</b></div><div><span>Full-time people's worth</span><b id="r-fte">0</b></div></div>
-      <p class="fine">A rough estimate based on 48 working weeks. Real results depend on how you work, which is what our first conversation is for.</p>
+      <div class="saver-out" aria-live="polite"><b id="r-week">7</b><span>hours back every week</span><small id="r-month">About 4 workdays a month</small></div>
     </div>
   </div>
 </section>
@@ -283,23 +307,39 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="band" id="contact">
+<!-- QUOTE -->
+<section class="band" id="quote">
   <div class="wrap contact">
     <div>
-      <div class="eyebrow">Start here</div>
+      <div class="eyebrow">Request a quote</div>
       <h2 class="h2 xl">Let's build <span class="grad">your idea.</span></h2>
-      <p class="lede">Answer three quick questions and we'll turn them into a simple plan. You'll hear back within one business day.</p>
+      <p class="lede">Tell us a little about it. We reply within one business day with next steps and an exact quote. No pressure, no jargon.</p>
+      <div class="q-attach" id="q-attach" hidden></div>
       <div class="lines">
-        <div class="line"><div><span class="k">Phone</span><span class="v">+1 (513) 497-0420</span></div><button class="copy" type="button" data-copy="+1 (513) 497-0420">Copy</button></div>
-        <div class="line"><div><span class="k">Email</span><span class="v">omnithynk@gmail.com</span></div><button class="copy" type="button" data-copy="omnithynk@gmail.com">Copy</button></div>
+        <div class="line"><div><span class="k">Phone</span><span class="v" id="c-phone">+1 (513) 497-0420</span></div><button class="copy" type="button" data-copy-from="c-phone">Copy</button></div>
+        <div class="line"><div><span class="k">Email</span><span class="v" id="c-email">omnithynk@gmail.com</span></div><button class="copy" type="button" data-copy-from="c-email">Copy</button></div>
       </div>
     </div>
-    <div class="intake" id="intake" aria-label="Project intake">
-      <div class="in-head"><span>Your idea, step by step</span><span id="in-step">1 / 4</span></div>
-      <div class="in-log" id="in-log" aria-live="polite"></div>
-      <div class="in-ctl" id="in-ctl"></div>
-    </div>
+    <form class="quote" id="quote-form" novalidate>
+      <div class="row2">
+        <div class="field"><label for="q-name">Your name *</label><input id="q-name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="field"><label for="q-email">Email *</label><input id="q-email" type="email" autocomplete="email" required maxlength="200"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="q-phone">Phone</label><input id="q-phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div class="field"><label for="q-biz">Business name</label><input id="q-biz" type="text" autocomplete="organization" maxlength="160"></div>
+      </div>
+      <div class="field"><label for="q-type">What do you want to build?</label><select id="q-type"></select></div>
+      <div class="field"><span class="lbl" id="q-feat-l">What should it do?</span><div class="chips" id="q-feat" role="group" aria-labelledby="q-feat-l"></div></div>
+      <div class="row2">
+        <div class="field"><label for="q-when">When do you need it?</label><select id="q-when"><option>Flexible</option><option>As soon as possible</option><option>In 1–3 months</option><option>In 3–6 months</option></select></div>
+        <div class="field"><label for="q-budget">Budget in mind</label><select id="q-budget"><option>Not sure yet</option><option>Under $2,500</option><option>$2,500–$10,000</option><option>$10,000–$25,000</option><option>$25,000+</option></select></div>
+      </div>
+      <div class="field"><label for="q-details">Tell us about your idea</label><div class="inp-mic"><textarea id="q-details" rows="4" maxlength="3000" placeholder="What are you picturing? Who is it for?"></textarea><button type="button" class="mic" data-mic="q-details" aria-label="Speak instead of typing" hidden><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button></div></div>
+      <div class="hp" aria-hidden="true"><label for="q-hp">Leave this empty</label><input id="q-hp" type="text" tabindex="-1" autocomplete="off"></div>
+      <button class="btn btn-primary mag" type="submit" id="q-send">Send my request →</button>
+      <p class="status" id="q-status" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 </main>
@@ -307,7 +347,7 @@
 <footer>
   <div class="wrap foot">
     <div class="foot-brand"><img src="/logo.png" alt="OmniThynk" width="140" height="34"><span>Built to think. Trained to evolve.</span></div>
-    <div><a href="https://linkedin.com">LinkedIn</a><a href="https://instagram.com">Instagram</a><a href="https://facebook.com">Facebook</a></div>
+    <div class="socials"><a id="f-li" href="#" hidden>LinkedIn</a><a id="f-ig" href="#" hidden>Instagram</a><a id="f-fb" href="#" hidden>Facebook</a><a href="#quote">Get a quote</a></div>
     <div>© 2026 OmniThynk LLC</div>
   </div>
 </footer>
@@ -325,7 +365,18 @@
   <form class="cp-form" id="c-form"><label for="c-input" class="sr">Your question</label><input id="c-input" type="text" placeholder="Type your question…" autocomplete="off"><button class="btn btn-primary btn-sm" type="submit">Send</button></form>
 </div>
 
+<div class="modal" id="share-modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="share-title">
+    <button type="button" class="cp-x" id="share-x" aria-label="Close">×</button>
+    <h3 id="share-title">Your design is saved</h3>
+    <p id="share-sub">Scan with your phone's camera to open it, or copy the link to share.</p>
+    <div class="qr" id="share-qr" aria-label="QR code for your design link"></div>
+    <div class="line"><span class="v" id="share-url">…</span><button class="copy" id="share-copy" type="button">Copy link</button></div>
+  </div>
+</div>
+
 <script src="/assets/mockup.js"></script>
+<script src="/assets/templates.js"></script>
 <script src="/assets/site.js"></script>
 </body>
 </html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Design concept | OmniThynk</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:title" content="A design concept made with OmniThynk">
+<meta property="og:description" content="See this website or app idea, then get a quote to build it.">
+<meta property="og:image" content="https://omnithynk-website.vercel.app/og.png">
+<meta name="theme-color" content="#050816">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Geist:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Playfair+Display:wght@600;700&family=Archivo+Black&family=Baloo+2:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  body{min-height:100vh}
+  .cbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px max(16px,env(safe-area-inset-left,0px));background:rgba(5,8,22,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .cbar img{height:30px;width:auto;display:block}
+  .cbar .tag{font-size:13px;color:var(--muted)}
+  .cwrap{max-width:1200px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-left,0px)) 140px}
+  .cwrap .dev-browser .screen{height:auto;overflow:visible}
+  .cwrap .dev-phone{width:min(360px,92vw);margin:0 auto}
+  .full-app{position:fixed;inset:0;top:55px;background:#fff;overflow:hidden}
+  .full-app .screen{height:100%}
+  .cta-float{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:6;display:flex;gap:8px;padding:8px;border-radius:999px;background:rgba(12,18,50,.92);border:1px solid rgba(167,139,250,.5);box-shadow:0 20px 50px -18px rgba(139,92,246,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);max-width:calc(100vw - 24px)}
+  .cta-float .btn{min-height:46px;white-space:nowrap}
+  .msgbox{max-width:520px;margin:80px auto;text-align:center;display:flex;flex-direction:column;gap:16px;align-items:center}
+</style>
+</head>
+<body>
+<header class="cbar"><a href="/" aria-label="OmniThynk home"><img src="/logo.png" alt="OmniThynk" width="124" height="30"></a><span class="tag">A design concept made with OmniThynk</span></header>
+<main id="root" class="cwrap"><p class="msgbox">Loading the design…</p></main>
+<div class="cta-float" id="cta" hidden>
+  <a class="btn btn-ghost btn-sm" href="/#demo">Make my own</a>
+  <a class="btn btn-primary btn-sm" id="cta-quote" href="/#quote">Get a quote for this</a>
+</div>
+<script src="/assets/mockup.js"></script>
+<script src="/assets/templates.js"></script>
+<script>
+(function () {
+  const SB = 'https://zksudmrnpebscnoztcai.supabase.co';
+  const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inprc3VkbXJucGVic2Nub3p0Y2FpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIzNzcwMTMsImV4cCI6MjEwNzk1MzAxM30.MynAEK0g4GBFsHkNYR7AIYiJ7Ga7Ug6PBSyIS5S0fqI';
+  const M = window.OmniMockup, root = document.getElementById('root');
+  const q = new URLSearchParams(location.search), id = q.get('c');
+  const fail = msg => { root.innerHTML = `<div class="msgbox"><h1 class="h2" style="max-width:none">${msg}</h1><a class="btn btn-primary" href="/#demo">Design your own</a></div>`; };
+  if (!id) return fail('This link is missing its design.');
+  fetch(`${SB}/rest/v1/rpc/get_concept`, { method: 'POST', headers: { apikey: KEY, Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ p_id: id }) })
+    .then(r => r.ok ? r.json() : null).then(c => {
+      if (!c || !c.data) return fail('We couldn’t find that design.');
+      const asApp = c.kind === 'app' || q.get('v') === 'app';
+      document.title = (M.normalize(c.data).name || 'Design') + ' | OmniThynk concept';
+      document.getElementById('cta-quote').href = '/?c=' + encodeURIComponent(id) + '#quote';
+      document.getElementById('cta').hidden = false;
+      let screen = 0;
+      const narrow = () => window.innerWidth < 700;
+      function draw() {
+        if (asApp) {
+          if (narrow()) { root.className = ''; root.innerHTML = '<div class="full-app"><div class="screen"></div></div>'; }
+          else { root.className = 'cwrap'; root.innerHTML = '<div class="dev-phone"><div class="notch"></div><div class="screen"></div></div>'; }
+          const sc = root.querySelector('.screen'); sc.innerHTML = M.renderApp(c.data, screen);
+          sc.style.fontSize = (sc.getBoundingClientRect().width / 23.5) + 'px';
+          sc.onclick = e => { const b = e.target.closest('[data-screen]'); if (b) { screen = +b.dataset.screen; draw(); } };
+        } else {
+          root.className = 'cwrap';
+          root.innerHTML = `<div class="dev-browser"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><div class="screen"></div></div>`;
+          root.querySelector('.url').textContent = (M.normalize(c.data).name || '').toLowerCase().replace(/[^a-z0-9]+/g, '') + '.com';
+          const sc = root.querySelector('.screen'); sc.innerHTML = M.renderSite(c.data);
+          const w = sc.getBoundingClientRect().width;
+          if (narrow()) { sc.querySelector('.mk-site').classList.add('narrow'); sc.style.fontSize = Math.max(11, w / 30) + 'px'; }
+          else sc.style.fontSize = (w / 64) + 'px';
+        }
+      }
+      draw();
+      let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(draw, 150); });
+    }).catch(() => fail('We couldn’t load that design. Please try again.'));
+})();
+</script>
+</body>
+</html>
