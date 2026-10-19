@@ -456,6 +456,10 @@
       }) });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw Object.assign(new Error('fail'), { code: j.error });
+      if (j.email && j.email.to) {
+        fetch('https://formsubmit.co/ajax/' + encodeURIComponent(j.email.to), { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(j.email.fields) })
+          .then(x => x.json()).then(x => { if (String(x.success) === 'true') rpc('mark_quote_emailed', { p_id: j.id }).catch(() => {}); }).catch(() => {});
+      }
       const c = SETTINGS.contact;
       $('quote-form').innerHTML = `<div class="q-done"><span class="ic big">${W('check', 30)}</span><h3>Thanks, ${esc(name.split(' ')[0])}! Your request is in.</h3><p>We'll reply to <b>${esc(email)}</b> within one business day with next steps and an exact quote.</p><p class="fine">Reference: ${esc(String(j.id || '').slice(0, 8).toUpperCase())}. Questions in the meantime? Call ${esc(c.phone)} or email ${esc(c.display_email)}.</p></div>`;
     } catch (err) {

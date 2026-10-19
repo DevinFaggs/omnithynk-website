@@ -51,27 +51,19 @@ module.exports = async function handler(req, res) {
 
   const site = `https://${req.headers['x-forwarded-host'] || req.headers.host || 'omnithynk-website.vercel.app'}`;
   const est = q.p_estimate || {};
-  let emailed = false, emailNote = '';
-  try {
-    const r = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(to)}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json', Origin: site, Referer: site + '/' },
-      body: JSON.stringify({
-        _subject: `New quote request: ${q.p_name}${q.p_business ? ' (' + q.p_business + ')' : ''}`,
-        _template: 'table', _captcha: 'false', _replyto: q.p_email,
-        Name: esc(q.p_name), Email: q.p_email, Phone: q.p_phone || '-', Business: esc(q.p_business || '-'),
-        'Project type': q.p_project_type || '-', Features: q.p_features.join(', ') || '-', Size: q.p_size || '-',
-        'Wanted by': q.p_timeline || '-', Budget: q.p_budget || '-', Details: esc(q.p_details || '-'),
-        'Estimate shown': est.tier ? `${est.tier} package, ${est.weeks || ''}` : '-',
-        'Their design': q.p_concept_id ? `${site}/concept?c=${q.p_concept_id}` : '-',
-        'Reference': id, 'Manage all requests': `${site}/admin`
-      })
-    });
-    const j = await r.json().catch(() => ({}));
-    emailed = r.ok && String(j.success) === 'true';
-    if (!emailed) { emailNote = String(j.message || r.status).slice(0, 160); console.error('email_not_sent', r.status, JSON.stringify(j).slice(0, 200)); }
-  } catch (e) { emailNote = 'email_error'; console.error('email_error', e && e.message); }
-  if (emailed) await sb('rpc/mark_quote_emailed', { p_id: id });
-
-  return res.status(200).json({ ok: true, id, emailed, email_note: emailNote || undefined });
+  // The visitor's browser delivers the email (FormSubmit refuses server-to-server requests).
+  const email = {
+    to,
+    fields: {
+      _subject: `New quote request: ${q.p_name}${q.p_business ? ' (' + q.p_business + ')' : ''}`,
+      _template: 'table', _captcha: 'false', _replyto: q.p_email,
+      Name: esc(q.p_name), Email: q.p_email, Phone: q.p_phone || '-', Business: esc(q.p_business || '-'),
+      'Project type': q.p_project_type || '-', Features: q.p_features.join(', ') || '-', Size: q.p_size || '-',
+      'Wanted by': q.p_timeline || '-', Budget: q.p_budget || '-', Details: esc(q.p_details || '-'),
+      'Estimate shown': est.tier ? `${est.tier} package, ${est.weeks || ''}` : '-',
+      'Their design': q.p_concept_id ? `${site}/concept?c=${q.p_concept_id}` : '-',
+      Reference: id, 'Manage all requests': `${site}/admin`
+    }
+  };
+  return res.status(200).json({ ok: true, id, email });
 };
