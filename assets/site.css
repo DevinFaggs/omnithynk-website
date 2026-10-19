@@ -354,9 +354,9 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
 .mk-site{font-family:'DM Sans',sans-serif;line-height:1.45;min-height:100%;letter-spacing:0}
 .mk-site h3,.mk-site h4,.mk-app h5{margin:0;letter-spacing:-.015em;text-wrap:balance}
 .mk-nav{display:flex;align-items:center;justify-content:space-between;gap:1.5em;padding:1.3em 2.6em}
-.mk-logo{display:flex;align-items:center;gap:.55em;font-size:1.15em;white-space:nowrap}
-.mk-logo span{width:1.9em;height:1.9em;border-radius:calc(var(--r) * .55em + .2em);display:grid;place-items:center}
-.mk-links{display:flex;gap:1.7em;font-size:.88em;opacity:.8;white-space:nowrap}
+.mk-logo{display:flex;align-items:center;gap:.55em;font-size:1.15em;line-height:1.15;min-width:0;max-width:16em}
+.mk-logo > span:first-child{flex:none;width:1.9em;height:1.9em;border-radius:calc(var(--r) * .55em + .2em);display:grid;place-items:center}
+.mk-links{display:flex;gap:1.5em;font-size:.88em;opacity:.8;white-space:nowrap;flex:none}
 .mk-btn{display:inline-flex;align-items:center;gap:.45em;padding:.62em 1.15em;border-radius:calc(var(--r) * 1em + .25em);font-weight:700;font-size:.85em;white-space:nowrap}
 .mk-btn.lg{padding:.85em 1.45em;font-size:.95em}
 .mk-btn.ghost{border:1.5px solid;background:transparent}
@@ -545,3 +545,21 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--dim);font
 .seg-b{white-space:nowrap}
 .est .seg{flex-wrap:wrap;border-radius:22px}
 @media (max-width:600px){.chat-fab{padding:0 9px;min-height:52px;font-size:0;gap:0}.chat-fab .fab-orb{width:34px;height:34px}}
+
+/* ===== QA fixes ===== */
+.values li{grid-template-columns:minmax(min-content,380px) minmax(0,1fr)}
+.values b{white-space:nowrap}
+@media (max-width:640px){.values li{grid-template-columns:minmax(0,1fr)}.values b{white-space:normal}}
+input[type=range]{margin:0}
+.saver-out b{line-height:1.08;margin-bottom:6px}
+.faq summary::after{flex:none;display:inline-block;width:1em;text-align:center}
+.faq summary{align-items:flex-start}
+.faq summary{padding-right:10px}
+
+.ap-top small{display:block;margin-bottom:.25em;line-height:1.2}
+.ap-top h5{line-height:1.15}
+.mk-nav .mk-btn{flex:none}
+
+.ap-top > div{min-width:0;flex:1}
+.ap-top > div > small{display:block!important;margin:0 0 .3em!important;line-height:1.25!important}
+.ap-top > div > h5{margin-top:0!important}
